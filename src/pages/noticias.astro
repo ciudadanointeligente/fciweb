@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import LogoFCI from '../assets/images/logos/fci_logo_navbar.png';
+const posts = await getCollection('posts');
+---
+
+
+<Layout title="Noticias">
+    <main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-bold text-stone-900 mb-4">Noticias</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero nam mollitia ad excepturi aut saepe optio sunt, dignissimos distinctio eos nesciunt rem illo odit omnis, quaerat perspiciatis nemo pariatur nihil!    </p>
+    <p class="mb-4 text-stone-900">
+      <a href="/keystatic">Admin UI</a>, Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ipsam, aperiam et earum corporis incidunt ducimus fugiat. A atque nulla at odit molestias nesciunt voluptatibus ea, cupiditate, accusamus praesentium et.    </p>
+    <h2>Posts</h2>
+    <ul>
+      {
+        posts.map(post => (
+          <li>
+            <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+    </main>
+</Layout>

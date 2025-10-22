@@ -1,0 +1,56 @@
+---
+import LogoFCI from '../assets/images/logos/fci_logo_navbar.png';
+import { Image } from 'astro:assets';
+---
+
+
+<div class="drawer">
+  <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content flex flex-col">
+    <!-- Navbar -->
+    <div class="bg-white w-full navbar shadow-lg shadow-azul/25 py-4 rounded-b-lg border-t-1 border-t-azul/25">
+      <div class="flex-none lg:hidden"></div> <!-- Empty div to balance the hamburger icon on the right -->
+      <div class="flex-1 flex justify-center lg:flex-none lg:pl-40">
+        <a href="/">
+          <Image src={LogoFCI} alt="Fundación Ciudadanía Inteligente" width={192} height={55} class="h-12 sm:h-16 w-auto" />
+        </a>
+      </div>
+      <div class="flex-none hidden lg:flex ml-52">
+        <ul class="menu menu-horizontal text-azul px-1 mx-auto pt-4 gap-x-4">
+          <li>
+            <a href="/" aria-label="link inicio" class="px-2 text-sm hover:scale-115 hover:translate-y-0.5 transition-transform duration-250">Inicio</a>
+          </li>
+          <li><a href="/nosotros" aria-label="link nosotros" class="px-2 text-sm hover:scale-115 hover:translate-y-0.5 transition-transform duration-250">Nosotros</a></li>
+          <li><a href="/noticias" aria-label="link noticias" class="px-2 text-sm hover:scale-115 hover:translate-y-0.5 transition-transform duration-250">Noticias</a></li>
+          <li><a href="/proyectos" aria-label="link proyectos" class="px-2 text-sm hover:scale-115 hover:translate-y-0.5 transition-transform duration-250">Proyectos</a></li>
+          <li><a href="/publicaciones" aria-label="link publicaciones" class="px-2 text-sm hover:scale-115 hover:translate-y-0.5 transition-transform duration-250">Publicaciones</a></li>
+          <li><a href="/informes" aria-label="link informes" class="px-2 text-sm hover:scale-115 hover:translate-y-0.5 transition-transform duration-250">Informes</a></li>
+          <li><a href="/contacto" aria-label="link contacto" class="px-2 text-sm hover:scale-115 hover:translate-y-0.5 transition-transform duration-250">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="flex-none lg:hidden">
+        <label for="my-drawer-3" aria-label="open sidebar" class="btn btn-square btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-6 w-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </label>
+      </div>
+    </div>
+    <!-- Page content here -->
+  </div>
+  <div class="drawer-side">
+    <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
+    <ul class="menu bg-white min-h-full w-80 p-4 font-[Mulish]">
+      <div class="flex justify-end p-4">
+        <label for="my-drawer-3" aria-label="close sidebar" class="btn btn-square btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-6 w-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </label>
+      </div>
+      <li><a href="/" aria-label="link inicio" class="text-sm">Inicio</a></li>
+      <li><a href="/nosotros" aria-label="link nosotros" class="text-sm">Nosotros</a></li>
+      <li><a href="/noticias" aria-label="link noticias" class="text-sm">Noticias</a></li>
+      <li><a href="/proyectos" aria-label="link proyectos" class="text-sm">Proyectos</a></li>
+      <li><a href="/publicaciones" aria-label="link publicaciones" class="text-sm">Publicaciones</a></li>
+      <li><a href="/informes" aria-label="link informes" class="text-sm">Informes</a></li>
+      <li><a href="/contacto" aria-label="link contacto" class="text-sm">Contacto</a></li>
+    </ul>
+  </div>
+</div>

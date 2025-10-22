@@ -1,0 +1,32 @@
+---
+import '../styles.css';
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { ClientRouter } from 'astro:transitions';
+
+const {title} = Astro.props;
+---
+
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="FCI" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Fundación Ciudadanía Inteligente - {title}</title>
+    <ClientRouter />
+  </head>
+  <body>
+    <div id="navbar" class="mt-3">
+      <Navbar />
+    </div>
+    <div class="container">
+      <slot />
+<Footer />
+    </div>
+  </body>
+</html>
