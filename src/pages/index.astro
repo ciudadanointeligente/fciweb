@@ -1,43 +1,92 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
+import BocinaImage from '../assets/images/web/fci-megafono.png';
+import BocinaImage2 from '../assets/images/web/fci-megafono-2.png';
 import HeroImage from '../assets/images/web/fci-hero-home.png';
+import GenteFondoImage from '../assets/images/web/fci-gente-home.png';
+import Boton from '../components/Boton.astro';
+import CardProyecto from '../components/CardProyecto.astro';
 ---
 
 
 <Layout title="Inicio">
+
+  <!-- Título home -->
   <div class="text-sm mt-10 mb-2 text-pretty font-bold text-center leading-snug md:text-4xl md:mt-10">
     <div class="text-azul">Hacemos de la democracia</div> 
     <div class="text-rosa">UNA EXPERIENCIA COMPARTIDA,</div> 
     <div class="text-azul">justa y transformadora</div> 
   </div>
+
+  <!-- Hero -->
   <div class="flex justify-center mb-8 mask-b-from-90%">
-    <Image src={HeroImage} alt="Fundación Ciudadanía Inteligente" class="w-full h-auto" />
+    <Image src={HeroImage} 
+      alt="Fundación Ciudadanía Inteligente" 
+      class="w-full h-auto" />
   </div>
-  <div class="text-sm text-center px-10 justify-center md:flex md:pl-30 md:justify-center md:text-left">
+
+  <!-- Visión y Visión -->
+  <div class="text-left px-10 md:flex md:pl-60 md:justify-center md:text-left">
     <div class="md:flex-1/2 text-pretty">
-      <div class="text-azul font-semibold md:text-[32px] md:mt-10 md:mb-10">VISIÓN</div>
-      <div class="text-stone-900 md:max-w-4/5 md:text-[20px]">En Ciudadanía Inteligente impulsamos cambios colectivos para que la democracia en <strong>América Latina y el Caribe</strong> sea participativa, transparente, justa y cercana a las personas.</div>
+      <div class="text-azul text-[18px] font-semibold md:text-[32px] md:mt-10 md:mb-10">VISIÓN</div>
+      <div class="w-full text-[14px] text-stone-900 md:max-w-4/5 md:text-[22px]">En Ciudadanía Inteligente impulsamos cambios colectivos para que la democracia en <strong>América Latina y el Caribe</strong> sea participativa, transparente, justa y cercana a las personas.</div>
     </div>
     <div class="mt-5 md:mt-0 md:flex-1/2 text-pretty">
-      <div class="text-azul font-semibold md:text-[32px] md:mt-10 md:mb-10">MISIÓN</div>
-      <div class="text-stone-900 md:max-w-4/5 md:text-[20px]">Aspiramos a sociedades con ciudadanía organizada, instituciones responsables y decisiones políticas que pongan en el centro el <strong>bienestar de las personas y el planeta</strong>.</div>
+      <div class="text-azul text-[18px] font-semibold md:text-[32px] md:mt-10 md:mb-10">MISIÓN</div>
+      <div class="w-full text-[14px] text-stone-900 md:max-w-4/5 md:text-[22px]">Aspiramos a sociedades con ciudadanía organizada, instituciones responsables y decisiones políticas que pongan en el centro el <strong>bienestar de las personas y el planeta</strong>.</div>
     </div>
   </div>
-  <div class="mt-5 mb-5 flex justify-center items-center md:hidden">
-  <button class="items-center px-2 py-2 bg-azul text-sm text-white rounded-lg shadow-gray-400 shadow-lg transition-colors duration-300 hover:bg-rosa">
-    <a href="/nosotros">VER NOSOTROS</a>
-  </button>
-</div>
-  <div class="md:flex md:flex-row md:flex-3 md:mt-10">
-    <div class="hidden md:flex md:flex-1/3 md:bg-amber-100">01</div>
-    <div class="hidden md:flex md:flex-1/3 md:justify-center md:items-center">
-      <button class="px-4 py-2 bg-azul text-white rounded-lg shadow-gray-400 shadow-lg transition-colors duration-300 hover:bg-rosa"><a href="/nosotros">VER NOSOTROS</a></button>
+
+  <!-- 'VER NOSOTROS' -->
+  <div class="mt-10 overflow-x-hidden">
+    <div class="flex flex-row">
+      <div class="w-1/3 -ml-8 flex items-center">
+        <Image src={BocinaImage} 
+          alt="Megáfono Fundación Ciudadanía Inteligente" 
+          class="w-[317px] h-auto ml-0"/>
+      </div>
+      <div class="w-2/3 flex items-center justify-center">
+        <Boton href="/nosotros">VER NOSOTROS</Boton>
+      </div>
+      <div class="w-1/3 -mr-8 flex items-center justify-end">
+        <Image src={BocinaImage2} 
+          alt="Megáfono Fundación Ciudadanía Inteligente" 
+          class="w-[317px] h-auto mr-0"/>
+      </div>
     </div>
-    <div class="hidden md:flex md:flex-1/3 md:bg-amber-100">03</div>
-  </<div>
+  </div>
+
+  <!-- Fondo gente -->
+  <div class="place-self-center">
+    <Image src={GenteFondoImage} 
+      alt="Fondo gente Fundación Ciudadanía Inteligente" 
+      class="w-[1080px] h-auto -mt-10 opacity-80"/>
+  </div>
+
+  <!-- Cards de proyectos -->
+  <div class="text-azul text-[32px] font-semibold text-center mb-10 mt-10">REVISA NUESTROS PROYECTOS</div>
+  <div class="flex flex-row gap-6 justify-center items-stretch">
+    <CardProyecto 
+      imgSrc="/ruta/imagen.jpg"
+      title="Mi Proyecto"
+      description="Descripción breve del proyecto."
+      projectUrl="https://enlace-al-proyecto.com"
+    />
+    <CardProyecto 
+      imgSrc="/ruta/imagen.jpg"
+      title="Mi Proyecto"
+      description="Descripción breve del proyecto."
+      projectUrl="https://enlace-al-proyecto.com"
+    />
+    <CardProyecto 
+      imgSrc="/ruta/imagen.jpg"
+      title="Mi Proyecto"
+      description="Descripción breve del proyecto."
+      projectUrl="https://enlace-al-proyecto.com"
+    />
+  </div>
+
+
+
 </Layout>
-
-
-
-

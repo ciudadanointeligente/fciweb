@@ -5,6 +5,8 @@ import keystatic from '@keystatic/astro';
 
 import tailwindcss from '@tailwindcss/vite';
 
+import netlify from '@astrojs/netlify';
+
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
@@ -16,4 +18,6 @@ export default defineConfig({
       exclude: ['@keystatic/astro'],
     },
   },
+
+  adapter: netlify(),
 });
