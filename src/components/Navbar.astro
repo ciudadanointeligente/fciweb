@@ -4,53 +4,65 @@ import { Image } from 'astro:assets';
 ---
 
 
-<div class="drawer">
-  <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
-  <div class="drawer-content flex flex-col">
-    <!-- Navbar -->
-    <div class="bg-white w-full navbar shadow-lg shadow-azul/25 py-4 rounded-b-lg border-t-1 border-t-azul/25">
-      <div class="flex-none lg:hidden"></div> <!-- Empty div to balance the hamburger icon on the right -->
-      <div class="flex-1 flex justify-center lg:flex-none lg:pl-40">
-        <a href="/">
-          <Image src={LogoFCI} alt="Fundación Ciudadanía Inteligente" width={192} height={55} class="h-12 sm:h-16 w-auto" />
-        </a>
-      </div>
-      <div class="flex-none hidden lg:flex ml-52">
-        <ul class="menu menu-horizontal text-azul px-1 mx-auto pt-4 gap-x-4">
-          <li>
-            <a href="/" aria-label="link inicio" class="px-2 text-sm hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Inicio</a>
-          </li>
-          <li><a href="/nosotros" aria-label="link nosotros" class="px-2 text-sm hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Nosotros</a></li>
-          <li><a href="/noticias" aria-label="link noticias" class="px-2 text-sm hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Noticias</a></li>
-          <li><a href="/proyectos" aria-label="link proyectos" class="px-2 text-sm hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Proyectos</a></li>
-          <li><a href="/publicaciones" aria-label="link publicaciones" class="px-2 text-sm hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Publicaciones</a></li>
-          <li><a href="/informes" aria-label="link informes" class="px-2 text-sm hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Informes</a></li>
-          <li><a href="/contacto" aria-label="link contacto" class="px-2 text-sm hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Contacto</a></li>
-        </ul>
-      </div>
-      <div class="flex-none lg:hidden">
-        <label for="my-drawer-3" aria-label="open sidebar" class="btn btn-square btn-ghost">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-6 w-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-        </label>
-      </div>
+<nav class="bg-white w-full shadow-lg shadow-azul/25 py-4 rounded-b-lg">
+  <div class="container mx-auto flex justify-between items-center lg:px-40">
+    <a href="/">
+      <Image src={LogoFCI} alt="Fundación Ciudadanía Inteligente" width={192} height={55} class="px-20 h-12 sm:h-16 w-auto" />
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden lg:flex space-x-4 text-azul px-1 mx-auto pt-4 gap-x-4 font-[Mulish]">
+      <li>
+        <a href="/" aria-label="link inicio" class="px-2 text-sm inline-block transform hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Inicio</a>
+      </li>
+      <li><a href="/nosotros" aria-label="link nosotros" class="px-2 text-sm inline-block transform hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Nosotros</a></li>
+      <li><a href="/noticias" aria-label="link noticias" class="px-2 text-sm inline-block transform hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Noticias</a></li>
+      <li><a href="/proyectos" aria-label="link proyectos" class="px-2 text-sm inline-block transform hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Proyectos</a></li>
+      <li><a href="/publicaciones" aria-label="link publicaciones" class="px-2 text-sm inline-block transform hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Publicaciones</a></li>
+      <li><a href="/informes" aria-label="link informes" class="px-2 text-sm inline-block transform hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Informes</a></li>
+      <li><a href="/contacto" aria-label="link contacto" class="px-2 text-sm inline-block transform hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Contacto</a></li>
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <div class="lg:hidden pr-4">
+      <button id="mobile-menu-button" class="text-azul focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </div>
-    <!-- Page content here -->
   </div>
-  <div class="drawer-side">
-    <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
-    <ul class="menu bg-white min-h-full w-80 p-4 font-[Mulish]">
-      <div class="flex justify-end p-4">
-        <label for="my-drawer-3" aria-label="close sidebar" class="btn btn-square btn-ghost">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-6 w-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </label>
-      </div>
-      <li><a href="/" aria-label="link inicio" class="text-sm">Inicio</a></li>
-      <li><a href="/nosotros" aria-label="link nosotros" class="text-sm">Nosotros</a></li>
-      <li><a href="/noticias" aria-label="link noticias" class="text-sm">Noticias</a></li>
-      <li><a href="/proyectos" aria-label="link proyectos" class="text-sm">Proyectos</a></li>
-      <li><a href="/publicaciones" aria-label="link publicaciones" class="text-sm">Publicaciones</a></li>
-      <li><a href="/informes" aria-label="link informes" class="text-sm">Informes</a></li>
-      <li><a href="/contacto" aria-label="link contacto" class="text-sm">Contacto</a></li>
+
+  <!-- Mobile Menu Content -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-white w-full font-[Mulish] py-4 px-4">
+    <ul class="flex flex-col items-center space-y-2">
+      <li><a href="/" aria-label="link inicio" class="text-sm text-azul inline-block transform hover:scale-105 transition-transform duration-400">Inicio</a></li>
+      <li><a href="/nosotros" aria-label="link nosotros" class="text-sm text-azul inline-block transform hover:scale-105 transition-transform duration-400">Nosotros</a></li>
+      <li><a href="/noticias" aria-label="link noticias" class="text-sm text-azul inline-block transform hover:scale-105 transition-transform duration-400">Noticias</a></li>
+      <li><a href="/proyectos" aria-label="link proyectos" class="text-sm text-azul inline-block transform hover:scale-105 transition-transform duration-400">Proyectos</a></li>
+      <li><a href="/publicaciones" aria-label="link publicaciones" class="text-sm text-azul inline-block transform hover:scale-105 transition-transform duration-400">Publicaciones</a></li>
+      <li><a href="/informes" aria-label="link informes" class="text-sm text-azul inline-block transform hover:scale-105 transition-transform duration-400">Informes</a></li>
+      <li><a href="/contacto" aria-label="link contacto" class="text-sm text-azul inline-block transform hover:scale-105 transition-transform duration-400">Contacto</a></li>
     </ul>
   </div>
-</div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
+});
+</script>

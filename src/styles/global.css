@@ -3,8 +3,5 @@
   --color-azul: #304FFE;
   --color-rosa: #D504F9;
 }
-@plugin "daisyui" {
-  themes: light;
-}
 
 
