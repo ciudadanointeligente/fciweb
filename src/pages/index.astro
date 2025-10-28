@@ -6,6 +6,7 @@ import BocinaImage2 from '../assets/images/web/fci-megafono-2.png';
 import HeroImage from '../assets/images/web/fci-hero-home.png';
 import GenteFondoImage from '../assets/images/web/fci-gente-home.png';
 import ProjectImage1 from '../assets/images/web/fci-proyectocard1.png';
+import ProjectImage2 from '../assets/images/web/fci-proyectocard2.png';
 import Boton from '../components/Boton.astro';
 import CardProyecto from '../components/CardProyecto.astro';
 ---
@@ -13,12 +14,13 @@ import CardProyecto from '../components/CardProyecto.astro';
 
 <Layout title="Inicio">
 
-  <!-- Título home -->
-  <div class="text-sm mt-10 mb-2 text-pretty font-bold text-center leading-snug md:text-4xl md:mt-10">
-    <div class="text-azul">Hacemos de la democracia</div> 
-    <div class="text-rosa">UNA EXPERIENCIA COMPARTIDA,</div> 
-    <div class="text-azul">justa y transformadora</div> 
-  </div>
+  <main>
+    <!-- Título home -->
+  <h1 class="text-sm mt-10 mb-2 text-pretty font-bold text-center leading-snug md:text-4xl md:pt-10">
+    <div class="font-bold text-azul">Hacemos de la democracia</div> 
+    <div class="font-bold text-rosa">UNA EXPERIENCIA COMPARTIDA,</div> 
+    <div class="font-bold text-azul">justa y transformadora</div> 
+  </h1>
 
   <!-- Hero -->
   <div class="flex justify-center mb-8 mask-b-from-90%">
@@ -30,12 +32,12 @@ import CardProyecto from '../components/CardProyecto.astro';
   <!-- Visión y Visión -->
   <div class="text-left px-10 md:flex md:pl-60 md:justify-center md:text-left">
     <div class="md:flex-1/2 text-pretty">
-      <div class="text-azul text-[18px] font-semibold md:text-[32px] md:mt-10 md:mb-10">VISIÓN</div>
-      <div class="w-full text-[14px] text-stone-900 md:max-w-4/5 md:text-[22px]">En Ciudadanía Inteligente impulsamos cambios colectivos para que la democracia en <strong>América Latina y el Caribe</strong> sea participativa, transparente, justa y cercana a las personas.</div>
+      <h2 class="text-azul text-[18px] font-semibold md:text-[32px] md:mt-10 md:mb-10">VISIÓN</h2>
+      <div class="w-full text-[14px] text-pretty text-stone-900 md:max-w-4/5 md:text-[22px]">En Ciudadanía Inteligente impulsamos cambios colectivos para que la democracia en <strong>América Latina y el Caribe</strong> sea participativa, transparente, justa y cercana a las personas.</div>
     </div>
     <div class="mt-5 md:mt-0 md:flex-1/2 text-pretty">
-      <div class="text-azul text-[18px] font-semibold md:text-[32px] md:mt-10 md:mb-10">MISIÓN</div>
-      <div class="w-full text-[14px] text-stone-900 md:max-w-4/5 md:text-[22px]">Aspiramos a sociedades con ciudadanía organizada, instituciones responsables y decisiones políticas que pongan en el centro el <strong>bienestar de las personas y el planeta</strong>.</div>
+      <h2 class="text-azul text-[18px] font-semibold md:text-[32px] md:mt-10 md:mb-10">MISIÓN</h2>
+      <div class="w-full text-[14px] text-pretty text-stone-900 md:max-w-4/5 md:text-[22px]">Aspiramos a sociedades con ciudadanía organizada, instituciones responsables y decisiones políticas que pongan en el centro el <strong>bienestar de las personas y el planeta</strong>.</div>
     </div>
   </div>
 
@@ -66,12 +68,19 @@ import CardProyecto from '../components/CardProyecto.astro';
   </div>
 
   <!-- Cards de proyectos -->
-  <div class="text-azul text-md md:text-[32px] font-semibold text-center mb-10 mt-10">REVISA NUESTROS PROYECTOS</div>
-  <div class="flex flex-col items-center gap-4 md:flex-row md:flex-wrap md:justify-center">
+  <h2 id="proyectos-heading" class="text-azul text-md md:text-[32px] font-bold text-center mb-10 mt-10">REVISA NUESTROS PROYECTOS</h2>
+  <section aria-labelledby="proyectos-heading">
+    <div class="flex flex-col items-center gap-4 md:flex-row md:flex-wrap md:justify-center">
     <CardProyecto 
-      imgSrc={ProjectImage1.src} alt="Proyecto Transparencia Activa"
+      imgSrc={ProjectImage1.src} alt="Ciudadanía Inteligente - Proyecto Transparentes"
+      title="Transparentes"
+      description="Fortalece la transparencia, la participación ciudadana y la rendición de cuentas a través de una red de organizaciones, una formación en línea, investigaciones y una plataforma de seguimiento legislativo. Iniciativa de Chile Transparente y Ciudadanía Inteligente."
+      projectUrl="https://enlace-al-proyecto.com"
+    />
+    <CardProyecto 
+      imgSrc={ProjectImage2.src} alt="Ciudadanía Inteligente - DemocraciaKit"
       title="DemocraciaKit"
-      description="El toolkit digital de Abre Alcaldías. Una plataforma web que recoge los aprendizajes acumulados del proyecto para ayudar a diseñar políticas públicas y proyectos ciudadanos participativos."
+      description="Prueba nuestra nueva Herramienta interactiva, puedes acceder a casos de éxito en gobiernos locales y te guía en la construcción de proyectos con énfasis en la participación ciudadana y la colaboración."
       projectUrl="https://enlace-al-proyecto.com"
     />
     <CardProyecto 
@@ -79,20 +88,17 @@ import CardProyecto from '../components/CardProyecto.astro';
       title="DemocraciaKit"
       description="El toolkit digital de Abre Alcaldías. Una plataforma web que recoge los aprendizajes acumulados del proyecto para ayudar a diseñar políticas públicas y proyectos ciudadanos participativos."
       projectUrl="https://enlace-al-proyecto.com"
-    />
-    <CardProyecto 
-      imgSrc={ProjectImage1.src} alt="Proyecto Transparencia Activa"
-      title="DemocraciaKit"
-      description="El toolkit digital de Abre Alcaldías. Una plataforma web que recoge los aprendizajes acumulados del proyecto para ayudar a diseñar políticas públicas y proyectos ciudadanos participativos."
-      projectUrl="https://enlace-al-proyecto.com"
-    />
-  </div>
+/>
+    </div>
+  </section>
 
   <!-- Botón Ver más proyectos -->
   <div class="flex justify-center my-10">
     <Boton href="/proyectos">VER MÁS</Boton>
   </div>
 
+  <!-- Ver publicaciones -->
+  <h2 class="text-azul text-md md:text-[32px] font-bold text-center mb-10 mt-10">REVISA NUESTRAS ÚLTIMAS PUBLICACIONES</h2>
 
 
 
@@ -102,5 +108,8 @@ import CardProyecto from '../components/CardProyecto.astro';
 
 
 
+
+
+  </main>
 
 </Layout>
