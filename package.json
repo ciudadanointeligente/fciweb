@@ -8,6 +8,7 @@
     "directory": "templates/astro"
   },
   "dependencies": {
+    "@astrojs/alpinejs": "^0.4.9",
     "@astrojs/markdoc": "^0.12.9",
     "@astrojs/netlify": "^6.5.13",
     "@astrojs/react": "^4.2.0",
@@ -16,8 +17,10 @@
     "@keystatic/astro": "^5.0.6",
     "@keystatic/core": "^0.5.48",
     "@tailwindcss/vite": "^4.1.14",
+    "@types/alpinejs": "^3.13.11",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "alpinejs": "^3.15.1",
     "astro": "^5.2.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

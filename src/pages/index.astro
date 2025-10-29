@@ -7,8 +7,30 @@ import HeroImage from '../assets/images/web/fci-hero-home.png';
 import GenteFondoImage from '../assets/images/web/fci-gente-home.png';
 import ProjectImage1 from '../assets/images/web/fci-proyectocard1.png';
 import ProjectImage2 from '../assets/images/web/fci-proyectocard2.png';
+import ProjectImage3 from '../assets/images/web/fci-proyectocard3.png';
+import ArchivoImage1 from '../assets/images/web/fci-archivocard1.png';
 import Boton from '../components/Boton.astro';
 import CardProyecto from '../components/CardProyecto.astro';
+import CardArchivo from '../components/CardArchivo.astro';
+import SliderPublicaciones from '../components/SliderPublicaciones.astro';
+
+const myPublications = [
+  {
+    image: '/fci-archivocard1.png',
+    title: 'Mi Publicación 1',
+    description: 'Esta es la descripción de mi primera publicación.Esta es la descripción de mi primera publicación.',
+  },
+  {
+    image: '/fci-archivocard1.png',
+    title: 'Mi Publicación 2',
+    description: 'Esta es la descripción de mi segunda publicación.',
+  },
+  {
+    image: '/fci-archivocard1.png',
+    title: 'Mi Publicación 3',
+    description: 'Esta es la descripción de mi tercera publicación.',
+  },
+];
 ---
 
 
@@ -16,100 +38,95 @@ import CardProyecto from '../components/CardProyecto.astro';
 
   <main>
     <!-- Título home -->
-  <h1 class="text-sm mt-10 mb-2 text-pretty font-bold text-center leading-snug md:text-4xl md:pt-10">
-    <div class="font-bold text-azul">Hacemos de la democracia</div> 
-    <div class="font-bold text-rosa">UNA EXPERIENCIA COMPARTIDA,</div> 
-    <div class="font-bold text-azul">justa y transformadora</div> 
-  </h1>
+    <h1 class="text-sm mt-10 mb-2 text-pretty font-bold text-center leading-snug md:text-4xl md:pt-10">
+      <div class="font-bold text-azul">Hacemos de la democracia</div> 
+      <div class="font-bold text-rosa">UNA EXPERIENCIA COMPARTIDA,</div> 
+      <div class="font-bold text-azul">justa y transformadora</div> 
+    </h1>
 
-  <!-- Hero -->
-  <div class="flex justify-center mb-8 mask-b-from-90%">
-    <Image src={HeroImage} 
-      alt="Fundación Ciudadanía Inteligente" 
-      class="w-full h-auto" />
-  </div>
-
-  <!-- Visión y Visión -->
-  <div class="text-left px-10 md:flex md:pl-60 md:justify-center md:text-left">
-    <div class="md:flex-1/2 text-pretty">
-      <h2 class="text-azul text-[18px] font-semibold md:text-[32px] md:mt-10 md:mb-10">VISIÓN</h2>
-      <div class="w-full text-[14px] text-pretty text-stone-900 md:max-w-4/5 md:text-[22px]">En Ciudadanía Inteligente impulsamos cambios colectivos para que la democracia en <strong>América Latina y el Caribe</strong> sea participativa, transparente, justa y cercana a las personas.</div>
+    <!-- Hero -->
+    <div class="flex justify-center mb-8 mask-b-from-90%">
+      <Image src={HeroImage} 
+        alt="Fundación Ciudadanía Inteligente" 
+        class="w-full h-auto" />
     </div>
-    <div class="mt-5 md:mt-0 md:flex-1/2 text-pretty">
-      <h2 class="text-azul text-[18px] font-semibold md:text-[32px] md:mt-10 md:mb-10">MISIÓN</h2>
-      <div class="w-full text-[14px] text-pretty text-stone-900 md:max-w-4/5 md:text-[22px]">Aspiramos a sociedades con ciudadanía organizada, instituciones responsables y decisiones políticas que pongan en el centro el <strong>bienestar de las personas y el planeta</strong>.</div>
-    </div>
-  </div>
 
-  <!-- 'VER NOSOTROS' -->
-  <div class="mt-10 overflow-x-hidden">
-    <div class="flex flex-row">
-      <div class="w-1/3 -ml-8 flex items-center">
-        <Image src={BocinaImage} 
-          alt="Megáfono Fundación Ciudadanía Inteligente" 
-          class="w-[317px] h-auto ml-0"/>
+    <!-- Visión y Visión -->
+    <div class="text-left px-10 md:flex md:pl-60 md:justify-center md:text-left">
+      <div class="md:flex-1/2 text-pretty">
+        <h2 class="text-azul text-[18px] font-semibold md:text-[32px] md:mt-10 md:mb-10">VISIÓN</h2>
+        <div class="w-full text-[14px] text-pretty text-stone-900 md:max-w-4/5 md:text-[22px]">En Ciudadanía Inteligente impulsamos cambios colectivos para que la democracia en <strong>América Latina y el Caribe</strong> sea participativa, transparente, justa y cercana a las personas.</div>
       </div>
-      <div class="w-2/3 flex items-center justify-center">
-        <Boton href="/nosotros">VER NOSOTROS</Boton>
-      </div>
-      <div class="w-1/3 -mr-8 flex items-center justify-end">
-        <Image src={BocinaImage2} 
-          alt="Megáfono Fundación Ciudadanía Inteligente" 
-          class="w-[317px] h-auto mr-0"/>
+      <div class="mt-5 md:mt-0 md:flex-1/2 text-pretty">
+        <h2 class="text-azul text-[18px] font-semibold md:text-[32px] md:mt-10 md:mb-10">MISIÓN</h2>
+        <div class="w-full text-[14px] text-pretty text-stone-900 md:max-w-4/5 md:text-[22px]">Aspiramos a sociedades con ciudadanía organizada, instituciones responsables y decisiones políticas que pongan en el centro el <strong>bienestar de las personas y el planeta</strong>.</div>
       </div>
     </div>
-  </div>
 
-  <!-- Fondo gente -->
-  <div class="place-self-center">
-    <Image src={GenteFondoImage} 
-      alt="Fondo gente Fundación Ciudadanía Inteligente" 
-      class="w-[1080px] h-auto -mt-10 opacity-80"/>
-  </div>
-
-  <!-- Cards de proyectos -->
-  <h2 id="proyectos-heading" class="text-azul text-md md:text-[32px] font-bold text-center mb-10 mt-10">REVISA NUESTROS PROYECTOS</h2>
-  <section aria-labelledby="proyectos-heading">
-    <div class="flex flex-col items-center gap-4 md:flex-row md:flex-wrap md:justify-center">
-    <CardProyecto 
-      imgSrc={ProjectImage1.src} alt="Ciudadanía Inteligente - Proyecto Transparentes"
-      title="Transparentes"
-      description="Fortalece la transparencia, la participación ciudadana y la rendición de cuentas a través de una red de organizaciones, una formación en línea, investigaciones y una plataforma de seguimiento legislativo. Iniciativa de Chile Transparente y Ciudadanía Inteligente."
-      projectUrl="https://enlace-al-proyecto.com"
-    />
-    <CardProyecto 
-      imgSrc={ProjectImage2.src} alt="Ciudadanía Inteligente - DemocraciaKit"
-      title="DemocraciaKit"
-      description="Prueba nuestra nueva Herramienta interactiva, puedes acceder a casos de éxito en gobiernos locales y te guía en la construcción de proyectos con énfasis en la participación ciudadana y la colaboración."
-      projectUrl="https://enlace-al-proyecto.com"
-    />
-    <CardProyecto 
-      imgSrc={ProjectImage1.src} alt="Proyecto Transparencia Activa"
-      title="DemocraciaKit"
-      description="El toolkit digital de Abre Alcaldías. Una plataforma web que recoge los aprendizajes acumulados del proyecto para ayudar a diseñar políticas públicas y proyectos ciudadanos participativos."
-      projectUrl="https://enlace-al-proyecto.com"
-/>
+    <!-- 'VER NOSOTROS' -->
+    <div class="mt-10 overflow-x-hidden">
+      <div class="flex flex-row">
+        <div class="w-1/3 -ml-8 flex items-center">
+          <Image src={BocinaImage} 
+            alt="Megáfono Fundación Ciudadanía Inteligente" 
+            class="w-[317px] h-auto ml-0"/>
+        </div>
+        <div class="w-2/3 flex items-center justify-center">
+          <Boton href="/nosotros">VER NOSOTROS</Boton>
+        </div>
+        <div class="w-1/3 -mr-8 flex items-center justify-end">
+          <Image src={BocinaImage2} 
+            alt="Megáfono Fundación Ciudadanía Inteligente" 
+            class="w-[317px] h-auto mr-0"/>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <!-- Botón Ver más proyectos -->
-  <div class="flex justify-center my-10">
-    <Boton href="/proyectos">VER MÁS</Boton>
-  </div>
+    <!-- Fondo gente -->
+    <div class="place-self-center">
+      <Image src={GenteFondoImage} 
+        alt="Fondo gente Fundación Ciudadanía Inteligente" 
+        class="w-[1080px] h-auto -mt-10 opacity-80"/>
+    </div>
 
-  <!-- Ver publicaciones -->
-  <h2 class="text-azul text-md md:text-[32px] font-bold text-center mb-10 mt-10">REVISA NUESTRAS ÚLTIMAS PUBLICACIONES</h2>
+    <!-- Cards de proyectos -->
+    <h2 id="proyectos-heading" class="text-azul text-md md:text-[32px] font-bold text-center mb-10 mt-10">REVISA NUESTROS PROYECTOS</h2>
+    <section aria-labelledby="proyectos-heading">
+      <div class="flex flex-col items-center gap-4 md:flex-row md:flex-wrap md:justify-center">
+        <CardProyecto 
+          imgSrc={ProjectImage1.src} alt="Ciudadanía Inteligente - Proyecto Transparentes"
+          title="Transparentes"
+          description="Fortalece la transparencia, la participación ciudadana y la rendición de cuentas a través de una red de organizaciones, una formación en línea, investigaciones y una plataforma de seguimiento legislativo. Iniciativa de Chile Transparente y Ciudadanía Inteligente."
+          projectUrl="https://enlace-al-proyecto.com"
+        />
+        <CardProyecto 
+          imgSrc={ProjectImage2.src} alt="Ciudadanía Inteligente - DemocraciaKit"
+          title="DemocraciaKit"
+          description="Prueba nuestra nueva Herramienta interactiva, puedes acceder a casos de éxito en gobiernos locales y te guía en la construcción de proyectos con énfasis en la participación ciudadana y la colaboración."
+          projectUrl="https://enlace-al-proyecto.com"
+        />
+        <CardProyecto 
+          imgSrc={ProjectImage3.src} alt="Proyecto Transparencia Activa"
+          title="Del Dicho al Hecho"
+          description="Analizamos si las promesas de campaña de las y los candidatos presidenciales llegan a convertirse en leyes: Del Dicho al Hecho revela el nivel real de cumplimiento de los gobiernos en Chile."
+          projectUrl="https://enlace-al-proyecto.com"
+        />
+      </div>
+    </section>
 
+    <!-- Botón Ver más proyectos -->
+    <div class="flex justify-center my-10">
+      <Boton href="/proyectos">VER MÁS</Boton>
+    </div>
 
-
-
-
-
-
-
-
-
-
+    <!-- Ver publicaciones -->
+    <h2 class="text-azul text-md md:text-[32px] font-bold text-center mb-10 pt-14">REVISA NUESTRAS ÚLTIMAS PUBLICACIONES</h2>
+    <SliderPublicaciones publications={myPublications} />
+    <!-- Botón Ver más publicaciones -->
+    <div class="flex justify-center my-10">
+      <Boton href="/publicaciones">VER MÁS</Boton>
+    </div>
   </main>
 
 </Layout>
+

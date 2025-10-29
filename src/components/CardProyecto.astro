@@ -3,8 +3,8 @@ const { imgSrc, title, description, projectUrl } = Astro.props;
 ---
 
 <div class="flex flex-col md:w-[394px] md:h-[589px] md:inline-flex justify-start items-start md:gap-1.5 p-[17px_8px_17px_10px] md:shrink-0 rounded-md bg-white shadow-md shadow-gray-400">
-  <div class="w-full place-content-stretch shadow-md shadow-gray-400 overflow-hidden rounded-md mt-1.5">
-    <img src={imgSrc} alt={title} class="h-[295px] w-full object-cover" />
+  <div class="w-full place-content-stretch overflow-hidden rounded-md mt-1">
+    <img src={imgSrc} alt={title} class="md:h-[295px] w-full object-cover" />
   </div>
   <div class="w-full px-2 font-['Space Mono'] font-normal text-[28px] text-left">{title}</div>
   <p class="px-2 py-auto text-[14px] text-pretty font-normal font-['Mulish']">{description}</p>

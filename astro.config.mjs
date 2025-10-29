@@ -7,10 +7,12 @@ import tailwindcss from '@tailwindcss/vite';
 
 import netlify from '@astrojs/netlify';
 
+import alpinejs from '@astrojs/alpinejs';
+
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
-  integrations: [react(), markdoc(), keystatic()],
+  integrations: [react(), markdoc(), keystatic(), alpinejs()],
 
   vite: {
     plugins: [tailwindcss()],
