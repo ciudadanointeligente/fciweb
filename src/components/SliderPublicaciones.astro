@@ -39,11 +39,11 @@ const { publications } = Astro.props;
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0"
           >
-            <div class="relative bg-white shadow-lg rounded-lg w-full h-full overflow-hidden">
-              <img :src="publication.image" :alt="publication.title" class="absolute inset-0 w-full h-full object-cover cursor-pointer" @click="activeSlide = (index + 1) % publications.length">
+            <div class="relative bg-white rounded-lg w-full h-full overflow-hidden">
+            <img :src="publication.image" :alt="publication.title" class="absolute inset-0 w-full h-full object-cover cursor-pointer" @click="activeSlide = (index + 1) % publications.length">
             <div class="absolute bottom-0 left-0 right-0 bg-black/90 bg-opacity-50 text-white p-4 h-1/4 flex flex-col justify-center">
-              <div class="text-md font-['Mulish'] font-light m-0" x-text="publication.title"></div>
-              <div class="text-xs font-['Mulish'] m-0" x-text="publication.description"></div>
+              <div class="text-md font-['Mulish'] font-normal m-0" x-text="publication.title"></div>
+              <div class="text-xs font-['Mulish'] font-normal m-0" x-text="publication.description"></div>
             </div>
             </div>
           </div>

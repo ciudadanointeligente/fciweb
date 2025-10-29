@@ -8,7 +8,6 @@ import GenteFondoImage from '../assets/images/web/fci-gente-home.png';
 import ProjectImage1 from '../assets/images/web/fci-proyectocard1.png';
 import ProjectImage2 from '../assets/images/web/fci-proyectocard2.png';
 import ProjectImage3 from '../assets/images/web/fci-proyectocard3.png';
-import ArchivoImage1 from '../assets/images/web/fci-archivocard1.png';
 import Boton from '../components/Boton.astro';
 import CardProyecto from '../components/CardProyecto.astro';
 import CardArchivo from '../components/CardArchivo.astro';
@@ -17,18 +16,18 @@ import SliderPublicaciones from '../components/SliderPublicaciones.astro';
 const myPublications = [
   {
     image: '/fci-archivocard1.png',
-    title: 'Mi Publicación 1',
-    description: 'Esta es la descripción de mi primera publicación.Esta es la descripción de mi primera publicación.',
+    title: 'Declaración de Ciudadanía Inteligente por veredicto en caso SQM',
+    description: 'Lee nuestra declaración institucional',
   },
   {
-    image: '/fci-archivocard1.png',
-    title: 'Mi Publicación 2',
-    description: 'Esta es la descripción de mi segunda publicación.',
+    image: '/fci-archivocard2.png',
+    title: 'Elecciones 2025 en Chile: lo que tienes que saber antes de votar',
+    description: 'Qué se elige y dónde se vota.',
   },
   {
-    image: '/fci-archivocard1.png',
-    title: 'Mi Publicación 3',
-    description: 'Esta es la descripción de mi tercera publicación.',
+    image: '/fci-archivocard3.png',
+    title: 'Cinco ensayos sobre innovaciones institucionales en los procesos constitucionales chilenos',
+    description: '',
   },
 ];
 ---
@@ -83,7 +82,7 @@ const myPublications = [
     </div>
 
     <!-- Fondo gente -->
-    <div class="place-self-center">
+    <div class="place-self-center mb-18">
       <Image src={GenteFondoImage} 
         alt="Fondo gente Fundación Ciudadanía Inteligente" 
         class="w-[1080px] h-auto -mt-10 opacity-80"/>
@@ -119,12 +118,12 @@ const myPublications = [
       <Boton href="/proyectos">VER MÁS</Boton>
     </div>
 
-    <!-- Ver publicaciones -->
-    <h2 class="text-azul text-md md:text-[32px] font-bold text-center mb-10 pt-14">REVISA NUESTRAS ÚLTIMAS PUBLICACIONES</h2>
+    <!-- Ver noticias -->
+    <h2 class="text-azul text-md md:text-[32px] font-bold text-center mb-10 pt-14">REVISA NUESTRAS ÚLTIMAS NOTICIAS</h2>
     <SliderPublicaciones publications={myPublications} />
-    <!-- Botón Ver más publicaciones -->
+    <!-- Botón Ver más noticias -->
     <div class="flex justify-center my-10">
-      <Boton href="/publicaciones">VER MÁS</Boton>
+      <Boton href="/noticias">VER MÁS</Boton>
     </div>
   </main>
 
