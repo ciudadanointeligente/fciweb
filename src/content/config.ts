@@ -1,8 +1,8 @@
 // @ts-ignore
 import { defineCollection, z } from 'astro:content';
 
-<!--Define the "posts o noticias" collection with its schema-- >
 const posts = defineCollection({
+  // Type-check frontmatter using a schema
   schema: z.object({
     title: z.string(),
     subtitle: z.string().optional(),
@@ -11,14 +11,6 @@ const posts = defineCollection({
   }),
 });
 
-<!--Define the "noticiashome" collection with its schema-- >
-const publications = defineCollection({
-  schema: z.object({
-    image: z.string().optional(),
-    title: z.string(),
-    description: z.string(),
-  }),
-});
 
-export const collections = { posts, publications };
+export const collections = { posts };
 

@@ -11,28 +11,25 @@ import ProjectImage3 from '../assets/images/web/fci-proyectocard3.png';
 import Boton from '../components/Boton.astro';
 import CardProyecto from '../components/CardProyecto.astro';
 import CardArchivo from '../components/CardArchivo.astro';
-import { getCollection } from "astro:content";
-const myPublications = await getCollection("publications");
-
 import SliderPublicaciones from '../components/SliderPublicaciones.astro';
 
-// const myPublications = [
-//   {
-//     image: '/fci-archivocard1.png',
-//     title: 'Declaración de Ciudadanía Inteligente por veredicto en caso SQM',
-//     description: 'Lee nuestra declaración institucional',
-//   },
-//   {
-//     image: '/fci-archivocard2.png',
-//     title: 'Elecciones 2025 en Chile: lo que tienes que saber antes de votar',
-//     description: 'Qué se elige y dónde se vota.',
-//   },
-//   {
-//     image: '/fci-archivocard3.png',
-//     title: 'Cinco ensayos sobre innovaciones institucionales en los procesos constitucionales chilenos',
-//     description: '',
-//   },
-// ];
+const myPublications = [
+  {
+    image: '/fci-archivocard1.png',
+    title: 'Declaración de Ciudadanía Inteligente por veredicto en caso SQM',
+    description: 'Lee nuestra declaración institucional',
+  },
+  {
+    image: '/fci-archivocard2.png',
+    title: 'Elecciones 2025 en Chile: lo que tienes que saber antes de votar',
+    description: 'Qué se elige y dónde se vota.',
+  },
+  {
+    image: '/fci-archivocard3.png',
+    title: 'Cinco ensayos sobre innovaciones institucionales en los procesos constitucionales chilenos',
+    description: '',
+  },
+];
 ---
 
 
