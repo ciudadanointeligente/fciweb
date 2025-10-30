@@ -9,10 +9,12 @@ import netlify from '@astrojs/netlify';
 
 import alpinejs from '@astrojs/alpinejs';
 
+import icon from 'astro-icon';
+
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
-  integrations: [react(), markdoc(), keystatic(), alpinejs()],
+  integrations: [react(), markdoc(), keystatic(), alpinejs(), icon()],
 
   vite: {
     plugins: [tailwindcss()],
