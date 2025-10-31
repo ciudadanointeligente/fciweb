@@ -4,36 +4,38 @@ import { Image } from 'astro:assets';
 import Lealtad from '../assets/images/web/lealtad.png';
 ---
 
-<div class="w-full bg-black py-5 mt-0">
-  <div class="flex justify-center mb-2">
-    <h2 class="text-gray-200 text-2xl font-bold">Ciudadanía_Inteligente</h2>
-  </div>
-  <div class="flex flex-row justify-center">
-    <div>
-      <a href="https://www.facebook.com/ciudadaniai/"><Icon name="mdi:facebook" class="w-6 h-6 mx-2 text-white hover:text-stone-400"/></a>
+<footer>
+  <div class="w-full bg-black py-5 mt-0">
+    <div class="flex justify-center mb-2">
+      <h2 class="text-gray-200 text-2xl font-bold">Ciudadanía_Inteligente</h2>
     </div>
-    <div>
-      <a href="https://twitter.com/ciudadania_i"><Icon name="mdi:twitter" class="w-6 h-6 mx-2 text-white hover:text-stone-400"/></a>
+    <div class="flex flex-row justify-center">
+      <div>
+        <a href="https://www.facebook.com/ciudadaniai/"><Icon name="mdi:facebook" class="w-6 h-6 mx-2 text-white hover:text-stone-400" aria-label="Facebook de Ciudadanía Inteligente"/></a>
+      </div>
+      <div>
+        <a href="https://twitter.com/ciudadania_i"><Icon name="mdi:twitter" class="w-6 h-6 mx-2 text-white hover:text-stone-400" aria-label="Twitter de Ciudadanía Inteligente"/></a>
+      </div>
+      <div>
+        <a href="https://www.youtube.com/channel/UCtiq34lXdXDxo6GhIwnY5Sw"><Icon name="mdi:youtube" class="w-6 h-6 mx-2 text-white hover:text-stone-400" aria-label="YouTube de Ciudadanía Inteligente"/></a>
+      </div>
+      <div>
+        <a href="https://www.instagram.com/ciudadaniai/"><Icon name="mdi:instagram" class="w-6 h-6 mx-2 text-white hover:text-stone-400" aria-label="Instagram de Ciudadanía Inteligente"/></a>
+      </div>
+      <div>
+        <a href="https://github.com/ciudadanointeligente"><Icon name="mdi:github" class="w-6 h-6 mx-2 text-white hover:text-stone-400" aria-label="GitHub de Ciudadanía Inteligente"/></a>
+      </div>
+      <!-- <div> -->
+      <!--   <Image src={CCImage} alt="Creative Commons" class="w-8 h-8 mx-2 invert"/> -->
+      <!-- </div> -->
     </div>
-    <div>
-      <a href="https://www.youtube.com/channel/UCtiq34lXdXDxo6GhIwnY5Sw"><Icon name="mdi:youtube" class="w-6 h-6 mx-2 text-white hover:text-stone-400"/></a>
+    <div class="flex flex-row justify-center mt-5">
+      <Image src={Lealtad} alt="Lealtad" class="w-22 h-auto"/>
     </div>
-    <div>
-      <a href="https://www.instagram.com/ciudadaniai/"><Icon name="mdi:instagram" class="w-6 h-6 mx-2 text-white hover:text-stone-400"/></a>
-    </div>
-    <div>
-      <a href="https://github.com/ciudadanointeligente"><Icon name="mdi:github" class="w-6 h-6 mx-2 text-white hover:text-stone-400"/></a>
-    </div>
-    <!-- <div> -->
-    <!--   <Image src={CCImage} alt="Creative Commons" class="w-8 h-8 mx-2 invert"/> -->
-    <!-- </div> -->
-  </div>
-  <div class="flex flex-row justify-center mt-5">
-    <Image src={Lealtad} alt="Lealtad" class="w-22 h-auto"/>
-  </div>
-  
+
     <hr class="my-5 h-0.5 border border-stone-600 bg-stone-300" />
-  <div class="text-center text-gray-200 text-sm">
-    &copy; {new Date().getFullYear()} Fundación Ciudadanía Inteligente. Todos los derechos reservados.
+    <div class="text-center text-gray-200 text-sm">
+      &copy; {new Date().getFullYear()} Fundación Ciudadanía Inteligente. Todos los derechos reservados.
+    </div>
   </div>
-</div>
+</footer>
