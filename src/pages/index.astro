@@ -35,8 +35,7 @@ const myPublications = [
 <Layout title="Inicio">
 
   <main>
-    <!-- Título home -->
-    <h1 class="text-sm mt-10 mb-2 text-pretty font-bold text-center leading-snug md:text-4xl md:pt-10">
+    <h1 class="text-sm mt-10 mb-2 text-pretty font-bold text-center md:leading-[1.5] md:text-4xl md:pt-10">
       <div class="font-bold text-azul">Hacemos de la democracia</div> 
       <div class="font-bold text-rosa">UNA EXPERIENCIA COMPARTIDA,</div> 
       <div class="font-bold text-azul">justa y transformadora</div> 
@@ -46,7 +45,7 @@ const myPublications = [
     <div class="flex justify-center mb-8 mask-b-from-90%">
       <Image src={HeroImage} 
         alt="Fundación Ciudadanía Inteligente" 
-        class="w-full h-auto" />
+        class="w-full h-[800px]" />
     </div>
 
     <!-- Visión y Visión -->
@@ -90,7 +89,7 @@ const myPublications = [
     <!-- Cards de proyectos -->
     <h2 id="proyectos-heading" class="text-azul text-md md:text-[32px] font-bold text-center mb-10 mt-10">REVISA NUESTROS PROYECTOS</h2>
     <section aria-labelledby="proyectos-heading">
-      <div class="flex flex-col items-center gap-4 md:flex-row md:flex-wrap md:justify-center">
+      <div class="flex flex-col w-auto items-center gap-4 md:flex-row md:flex-wrap md:justify-center">
         <CardProyecto 
           imgSrc={ProjectImage1.src} alt="Ciudadanía Inteligente - Proyecto Transparentes"
           title="Transparentes"
@@ -128,8 +127,8 @@ const myPublications = [
     <!-- franja newsletter -->
     <div class="md:mt-24 items-center bg-rosa mix-blend-multiply shadow-md shadow-gray-400">
       <div class="py-5 px-5 md:py-20 md:px-32">
-        <div class="text-white text-[24px] font-bold font-stretch-condensed">Súmate a nuestro newsletter</div>
-        <form class="py-2 font-['Mulish'] text-[18px]">
+        <div class="text-white text-sm md:text[24px] font-bold font-stretch-condensed">Súmate a nuestro newsletter</div>
+        <form class="py-2 font-['Mulish'] text-sm md:text-[18px]">
           <input 
             type="email" 
             placeholder="Ingresa tu correo" 
@@ -139,7 +138,7 @@ const myPublications = [
           />
           <button 
             type="submit" 
-            class="py-1.5 px-1.5 m-2 bg-rosa text-white border rounded-md hover:bg-white hover:text-rosa transition-colors duration-800"
+            class="py-1.5 px-1.5 m-2 text-sm bg-rosa text-white border rounded-md hover:bg-white hover:text-rosa transition-colors duration-800"
           >
             Suscribirse
           </button>
