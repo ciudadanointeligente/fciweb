@@ -1,12 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
+import BgHeader from '../assets/images/web/fci-barheader.png';
 import Boton from '../components/Boton.astro';
 ---
 
 
 <Layout title="Nosotros">
   <main>
-    <h1 class="text-3xl font-bold text-center mt-10 mb-6 text-azul">Nosotros</h1>
+    <div class="bg-azul h-[300px] mix-blend-color relative z-0 mt-[-30px]">
+    <!-- <Image src={BgHeader} alt="Header" class="w-full h-[300px] mix-blend-color" /> -->
+  
+    <h1 class="items-center">hola</h1>
+    </div>
   </main>
 </Layout>

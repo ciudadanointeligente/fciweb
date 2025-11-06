@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 ---
 
 
-<nav class="bg-white w-full shadow-lg shadow-azul/25 py-4 rounded-b-lg">
+<nav class="bg-white w-full shadow-lg shadow-azul/25 py-4 rounded-b-lg z-50 relative">
   <div class="container mx-auto flex justify-between items-center lg:px-40">
     <a href="/">
       <Image src={LogoFCI} alt="Fundación Ciudadanía Inteligente" width={192} height={55} class="px-10 w-full md:w-full lg:w-full" />
@@ -35,14 +35,14 @@ import { Image } from 'astro:assets';
 
   <!-- Mobile Menu Content -->
   <div id="mobile-menu" class="hidden lg:hidden bg-white w-full font-[Mulish] py-4 px-4">
-    <ul class="flex flex-col items-center space-y-2">
-      <li><a href="/" aria-label="link inicio" class="text-sm text-azul inline-block transform hover:scale-105 transition-transform duration-400">Inicio</a></li>
-      <li><a href="/nosotros" aria-label="link nosotros" class="text-sm text-azul inline-block transform hover:scale-105 transition-transform duration-400">Nosotros</a></li>
-      <li><a href="/noticias" aria-label="link noticias" class="text-sm text-azul inline-block transform hover:scale-105 transition-transform duration-400">Noticias</a></li>
-      <li><a href="/proyectos" aria-label="link proyectos" class="text-sm text-azul inline-block transform hover:scale-105 transition-transform duration-400">Proyectos</a></li>
-      <li><a href="/publicaciones" aria-label="link publicaciones" class="text-sm text-azul inline-block transform hover:scale-105 transition-transform duration-400">Publicaciones</a></li>
-      <li><a href="/informes" aria-label="link informes" class="text-sm text-azul inline-block transform hover:scale-105 transition-transform duration-400">Informes</a></li>
-      <li><a href="/contacto" aria-label="link contacto" class="text-sm text-azul inline-block transform hover:scale-105 transition-transform duration-400">Contacto</a></li>
+    <ul class="flex flex-col items-center space-y-2 text-azul">
+      <li><a href="/" aria-label="link inicio" class="text-sm inline-block transform hover:scale-105 transition-transform duration-400">Inicio</a></li>
+      <li><a href="/nosotros" aria-label="link nosotros" class="text-sm inline-block transform hover:scale-105 transition-transform duration-400">Nosotros</a></li>
+      <li><a href="/noticias" aria-label="link noticias" class="text-sm inline-block transform hover:scale-105 transition-transform duration-400">Noticias</a></li>
+      <li><a href="/proyectos" aria-label="link proyectos" class="text-sm inline-block transform hover:scale-105 transition-transform duration-400">Proyectos</a></li>
+      <li><a href="/publicaciones" aria-label="link publicaciones" class="text-sm inline-block transform hover:scale-105 transition-transform duration-400">Publicaciones</a></li>
+      <li><a href="/informes" aria-label="link informes" class="text-sm inline-block transform hover:scale-105 transition-transform duration-400">Informes</a></li>
+      <li><a href="/contacto" aria-label="link contacto" class="text-sm inline-block transform hover:scale-105 transition-transform duration-400">Contacto</a></li>
     </ul>
   </div>
 </nav>
