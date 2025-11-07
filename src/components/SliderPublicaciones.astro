@@ -12,13 +12,16 @@ interface Props {
 const { publications } = Astro.props;
 ---
 
+
+<!-- slider de noticias -->
 <div class="relative w-full mx-auto" id="slider-container" role="region" aria-roledescription="carousel">
   <div class="text-pretty relative h-60 overflow-hidden rounded-lg">
-    <!-- Slider container -->
+    <!-- slider container -->
     <div
       class="text-pretty flex md:w-full justify-center items-center h-full"
       x-data="sliderData"
       data-publications={JSON.stringify(publications)}
+      x-init="init()"
     >
       <template x-for="(publication, index) in publications" :key="index">
         <div
@@ -54,7 +57,7 @@ const { publications } = Astro.props;
   </div>
 </div>
 
-<script is:inline>
+<script>
 document.addEventListener('alpine:init', () => {
   if (window.Alpine) {
     window.Alpine.data('sliderData', () => ({

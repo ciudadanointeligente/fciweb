@@ -30,3 +30,24 @@ const {title} = Astro.props;
     </div>
   </body>
 </html>
+
+<script>
+  import Alpine from 'alpinejs';
+
+  // Initialize Alpine on the initial page load
+  Alpine.start();
+
+  document.addEventListener('astro:page-load', () => {
+    // Stop Alpine's observation to prevent issues during DOM manipulation
+    Alpine.stopObservingMutations();
+
+    // Dispatch 'alpine:init' to re-trigger Alpine's initialization process
+    document.dispatchEvent(new Event('alpine:init'));
+
+    // Initialize Alpine on the new DOM tree
+    Alpine.initTree(document.documentElement);
+
+    // Restart Alpine's observation for dynamic DOM changes
+    Alpine.startObservingMutations();
+  });
+</script>

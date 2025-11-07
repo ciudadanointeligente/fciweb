@@ -35,20 +35,22 @@ const myPublications = [
 <Layout title="Inicio">
 
   <main>
+
+    <!-- título principal -->
     <h1 class="text-sm mt-10 mb-2 text-pretty font-bold text-center md:leading-[1.5] md:text-4xl md:pt-10">
       <div class="font-bold text-azul">Hacemos de la democracia</div> 
       <div class="font-bold text-rosa">UNA EXPERIENCIA COMPARTIDA,</div> 
       <div class="font-bold text-azul">justa y transformadora</div> 
     </h1>
 
-    <!-- Hero -->
+    <!-- hero -->
     <div class="flex justify-center mb-8 mask-b-from-90%">
       <Image src={HeroImage} 
         alt="Fundación Ciudadanía Inteligente" 
         class="w-full h-[800px]" />
     </div>
 
-    <!-- Visión y Visión -->
+    <!-- visión y misión -->
     <div class="text-left px-10 md:flex md:pl-60 md:justify-center md:text-left">
       <div class="md:flex-1/2 text-pretty">
         <h2 class="text-azul text-[18px] font-semibold md:text-[32px] md:mt-10 md:mb-10">VISIÓN</h2>
@@ -60,7 +62,7 @@ const myPublications = [
       </div>
     </div>
 
-    <!-- 'VER NOSOTROS' -->
+    <!-- ver nosotros bocinas -->
     <div class="mt-10 overflow-x-hidden">
       <div class="flex flex-row">
         <div class="w-1/3 -ml-8 flex items-center">
@@ -79,14 +81,14 @@ const myPublications = [
       </div>
     </div>
 
-    <!-- Fondo gente -->
+    <!-- fondo gente -->
     <div class="place-self-center mb-18">
       <Image src={GenteFondoImage} 
         alt="Fondo gente Fundación Ciudadanía Inteligente" 
         class="w-[1080px] h-auto -mt-10 opacity-80"/>
     </div>
 
-    <!-- Cards de proyectos -->
+    <!-- cards de proyectos -->
     <h2 id="proyectos-heading" class="text-azul text-md md:text-[32px] font-bold text-center mb-10 mt-10">REVISA NUESTROS PROYECTOS</h2>
     <section aria-labelledby="proyectos-heading">
       <div class="flex flex-col w-auto items-center gap-4 md:flex-row md:flex-wrap md:justify-center">
@@ -111,12 +113,12 @@ const myPublications = [
       </div>
     </section>
 
-    <!-- Botón Ver más proyectos -->
+    <!-- botón ver más proyectos -->
     <div class="flex justify-center my-10 md:mb-20">
       <Boton href="/proyectos">VER MÁS</Boton>
     </div>
 
-    <!-- Ver noticias -->
+    <!-- ver noticias -->
     <h2 class="text-azul text-md md:text-[32px] md:mt-10 font-bold text-center mb-10">REVISA NUESTRAS ÚLTIMAS NOTICIAS</h2>
     <div class="mx-auto text-wrap"><SliderPublicaciones publications={myPublications} /></div>
     <!-- Botón Ver más noticias -->
@@ -147,7 +149,7 @@ const myPublications = [
     </div>
 
 
-    <!-- Hero footer -->
+    <!-- hero footer -->
     <div class="flex justify-center mb-8 mask-b-from-90%">
       <Image src={HeroImage} 
         alt="Fundación Ciudadanía Inteligente" 

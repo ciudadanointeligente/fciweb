@@ -4,13 +4,14 @@ import { Image } from 'astro:assets';
 ---
 
 
+<!-- navbar logo y menú -->
 <nav class="bg-white w-full shadow-lg shadow-azul/45 py-4 rounded-b-lg z-50 relative">
   <div class="container mx-auto flex justify-between items-center lg:px-40">
     <a href="/">
       <Image src={LogoFCI} alt="Fundación Ciudadanía Inteligente" width={192} height={55} class="px-10 w-full md:w-full lg:w-full" />
     </a>
 
-    <!-- Desktop Menu -->
+    <!-- desktop menú -->
     <ul class="hidden lg:flex space-x-4 text-azul px-1 mx-auto pt-4 gap-x-4 font-[Mulish]">
       <li>
         <a href="/" aria-label="link inicio" class="px-2 text-sm inline-block transform hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Inicio</a>
@@ -23,7 +24,7 @@ import { Image } from 'astro:assets';
       <li><a href="/contacto" aria-label="link contacto" class="px-2 text-sm inline-block transform hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Contacto</a></li>
     </ul>
 
-    <!-- Mobile Menu Button -->
+    <!-- mobile menú button -->
     <div class="lg:hidden pr-4">
       <button id="mobile-menu-button" class="text-azul focus:outline-none" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
@@ -33,7 +34,7 @@ import { Image } from 'astro:assets';
     </div>
   </div>
 
-  <!-- Mobile Menu Content -->
+  <!-- mobile menú content -->
   <div id="mobile-menu" class="hidden lg:hidden bg-white w-full font-[Mulish] py-4 px-4">
     <ul class="flex flex-col items-center space-y-2 text-azul">
       <li><a href="/" aria-label="link inicio" class="text-sm inline-block transform hover:scale-105 transition-transform duration-400">Inicio</a></li>
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Close menu when a link is clicked
+    // close menu when a link is clicked
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');

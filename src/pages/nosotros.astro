@@ -1,18 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import BgHeader from '../assets/images/web/fci-barheader.png';
 import Boton from '../components/Boton.astro';
 ---
 
 
 <Layout title="Nosotros">
   <main>
+
+    <!-- header -->
     <div class="bg-azul h-[300px] mix-blend-screen relative z-0 mt-[-30px] shadow-lg shadow-azul/45">
       <div class="text-center align-middle py-[120px]">
-        <h1 class="text-3xl text-white font-bold">Nosotros</h1>
+        <h1 class="text-4xl text-white font-extrabold">Nosotros</h1>
       </div>
     </div>
-    <p>Emet texto de cualquier cosa</p>
+
+
+    <div class="flex flex-col mt-6 gap-2 text-center md:text-left md:gap-6 md:flex-row md:mt-16">
+      <div class="p-2 w-full md:pt-12 md:pl-50">
+        <div class="font-bold text-rosa text-4xl md:pb-6">16 AÑOS</div> 
+        <div class="font-extrabold text-azul text-sm md:text-lg">HACIENDO DE LA DEMOCRACIA UNA EXPERIENCIA</div> 
+        <div class="font-extrabold text-azul text-sm md:text-lg">COMPARTIDA, JUSTA Y TRANSFORMADORA</div> 
+      </div>
+      <div class="p-2 w-full md:pr-56 text-black text-sm md:text-lg">Somos una organización latinoamericana sin fines de lucro. Impulsamos cambios concretos: formamos ciudadanía, acompañamos gobiernos locales, desarrollamos herramientas digitales, construimos alianzas diversas e investigamos amenazas a la democracia para proponer soluciones que descentralicen el poder y activen la participación.</div>
+
+    </div>
+
   </main>
 </Layout>
