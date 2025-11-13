@@ -7,14 +7,14 @@ import { Image } from 'astro:assets';
 <!-- navbar logo y menú -->
 <nav class="bg-white w-full shadow-lg shadow-azul/45 py-4 rounded-b-lg z-50 relative">
   <div class="container mx-auto flex justify-between items-center lg:px-40">
-    <a href="/">
+    <a href="/" data-astro-reload>
       <Image src={LogoFCI} alt="Fundación Ciudadanía Inteligente" width={192} height={55} class="px-10 w-full md:w-full lg:w-full" />
     </a>
 
     <!-- desktop menú -->
     <ul class="hidden lg:flex space-x-4 text-azul px-1 mx-auto pt-4 gap-x-4 font-[Mulish]">
       <li>
-        <a href="/" aria-label="link inicio" class="px-2 text-sm inline-block transform hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Inicio</a>
+        <a href="/" aria-label="link inicio" data-astro-reload class="px-2 text-sm inline-block transform hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Inicio</a>
       </li>
       <li><a href="/nosotros" aria-label="link nosotros" class="px-2 text-sm inline-block transform hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Nosotros</a></li>
       <li><a href="/proyectos" aria-label="link proyectos" class="px-2 text-sm inline-block transform hover:scale-115 hover:translate-y-0.5 transition-transform duration-400">Proyectos</a></li>

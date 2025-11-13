@@ -1,4 +1,3 @@
-// @ts-ignore
 import { defineCollection, z } from 'astro:content';
 
 const posts = defineCollection({
@@ -11,4 +10,50 @@ const posts = defineCollection({
   }),
 });
 
-export const collections = { posts };
+const people = defineCollection({
+  type: 'data',
+  schema: z.object({
+    name: z.string(),
+    position: z.string(),
+    order: z.number(),
+    photo: z.string(), // Keystatic image field stores path as string
+    description: z.string(),
+    email: z.string().optional(),
+    twitter: z.string().optional(),
+    linkedin: z.string().optional(),
+    instagram: z.string().optional(),
+    github: z.string().optional(),
+  }),
+});
+
+const people2 = defineCollection({
+  type: 'data',
+  schema: z.object({
+    name: z.string(),
+    position: z.string(),
+    order: z.number(),
+    photo: z.string(), // Keystatic image field stores path as string
+    description: z.string(),
+    email: z.string().optional(),
+    twitter: z.string().optional(),
+    linkedin: z.string().optional(),
+    instagram: z.string().optional(),
+    github: z.string().optional(),
+  }),
+});
+
+const proyectos = defineCollection({
+  type: 'data',
+  schema: z.object({
+    nombre: z.string(),
+    imagen: z.string(), // Keystatic image field stores path as string
+    ubicacion: z.enum(['America Latina', 'Chile']),
+    descripcion: z.string(),
+    link: z.string().url(),
+    link2: z.string().url().optional(),
+    status: z.enum(['Actual', 'Pasado']),
+    home: z.boolean().default(false),
+  }),
+});
+
+export const collections = { posts, people, people2, proyectos };

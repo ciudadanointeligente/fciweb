@@ -1,7 +1,21 @@
 @import "tailwindcss";
+@import "tailwindcss-animated";
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.image-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
 @theme {
   --color-azul: #304FFE;
   --color-rosa: #D504F9;
 }
-
 

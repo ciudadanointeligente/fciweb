@@ -45,7 +45,7 @@ const { publications } = Astro.props;
           :aria-hidden="activeSlide !== index"
         >
           <div class="text-pretty relative bg-white rounded-lg w-full h-full overflow-hidden">
-            <img :src="publication.image" :alt="publication.title" class="absolute inset-0 w-full h-full object-cover cursor-pointer" @click="activeSlide = (index + 1) % publications.length">
+            <img :src="publication.image" :alt="publication.title" class="absolute inset-0 w-full h-full object-cover cursor-pointer" @click="activeSlide = index">
             <div class="absolute bottom-0 left-0 right-0 bg-black/90 bg-opacity-50 text-white text-wrap p-2 h-1/4 flex flex-col items-center-safe">
               <div class="text-[12px] md:text-[16px] text-wrap font-['Mulish'] font-normal" x-text="publication.title"></div>
               <div class="text-[12px] md:text-[14px] text-wrap font-['Mulish'] font-normal" x-text="publication.description"></div>

@@ -1,0 +1,79 @@
+---
+import { Image, getImage } from 'astro:assets';
+
+interface Props {
+  name: string;
+  position: string;
+  photo: string;
+  description: string;
+  email?: string;
+  twitter?: string;
+  linkedin?: string;
+  instagram?: string;
+  github?: string;
+}
+
+const { name, position, photo: photoPath, description, email, twitter, linkedin, instagram, github } = Astro.props;
+
+const optimizedPhoto = await getImage({
+  src: photoPath,
+  width: 192, // 192px
+  height: 192, // 192px
+});
+---
+
+<div class="w-80 h-[360px] relative mx-auto my-4">
+  <Image
+    src={optimizedPhoto.src}
+    alt={`Foto de ${name}`}
+    width={optimizedPhoto.options.width}
+    height={optimizedPhoto.options.height}
+    class="absolute top-[-48px] left-1/2 -translate-x-1/2 rounded-full w-38 h-38 object-cover shadow-[0px_6px_10px_4px_rgba(0,0,0,0.15)] z-10"
+  />
+  <div class="absolute left-0 w-full px-2.5 pt-12 pb-4 top-[100px] bg-white rounded-[30px] shadow-[0px_6px_10px_4px_rgba(0,0,0,0.15)] flex flex-col justify-start items-center gap-2.5 overflow-hidden">
+    <div class="flex-1 text-center">
+      <div class="text-rosa text-[24px]/6  font-normal font-['Space_Mono']">{name}<br/></div>
+      <div class="text-stone-900 text-[20px]/6 font-medium font-['Mulish']">{position}</div>
+    </div>
+    <!-- <div class="text-stone-600 text-sm leading-snug text-center px-4"> -->
+    <!--   <Fragment set:html={description} /> -->
+    <!-- </div> -->
+    <div class="flex justify-center gap-2 mt-2">
+      {
+        email && (
+          <a href={`mailto:${email}`} class="btn btn-circle btn-sm bg-[--color-azul] border-[--color-azul] hover:bg-blue-700 hover:border-blue-700 text-white">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        )
+      }
+      {
+        twitter && (
+          <a href={twitter} target="_blank" rel="noopener noreferrer" class="btn btn-circle btn-sm bg-[--color-azul] border-[--color-azul] hover:bg-blue-700 hover:border-blue-700 text-white">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+        )
+      }
+      {
+        linkedin && (
+          <a href={linkedin} target="_blank" rel="noopener noreferrer" class="btn btn-circle btn-sm bg-[--color-azul] border-[--color-azul] hover:bg-blue-700 hover:border-blue-700 text-white">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        )
+      }
+      {
+        instagram && (
+          <a href={instagram} target="_blank" rel="noopener noreferrer" class="btn btn-circle btn-sm bg-[--color-azul] border-[--color-azul] hover:bg-blue-700 hover:border-blue-700 text-white">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        )
+      }
+      {
+        github && (
+          <a href={github} target="_blank" rel="noopener noreferrer" class="btn btn-circle btn-sm bg-[--color-azul] border-[--color-azul] hover:bg-blue-700 hover:border-blue-700 text-white">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        )
+      }
+    </div>
+  </div>
+</div>
