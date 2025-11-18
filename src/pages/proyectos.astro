@@ -56,13 +56,13 @@ const allProyectos = (await getCollection('proyectos')).sort((a, b) => a.data.or
       {
       allProyectos.map((proyecto) => (
       <CardProyecto 
-        imgSrc={proyecto.data.imagen} 
+        imagen={proyecto.data.imagen} 
         alt={proyecto.data.nombre}
-        title={proyecto.data.nombre}
-        description={proyecto.data.descripcion}
-        projectUrl={proyecto.data.link}
-        data-ubicacion={proyecto.data.ubicacion}
-        data-status={proyecto.data.status}
+        nombre={proyecto.data.nombre}
+        descripcion={proyecto.data.descripcion}
+        link={proyecto.data.link}
+        ubicacion={proyecto.data.ubicacion}
+        status={proyecto.data.status}
       />
       ))
       }

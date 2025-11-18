@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import PublicacionCard from '../components/PublicacionCard.astro';
 import { Image } from 'astro:assets';
 
-const publicaciones = await getCollection('publicaciones');
+const allpublicaciones = await getCollection('publicaciones')
 ---
 
 
@@ -17,6 +17,20 @@ const publicaciones = await getCollection('publicaciones');
         <h1 class="text-4xl text-white font-extrabold">Publicaciones</h1>
       </div>
     </div>
+
+    <section aria-labelledby="proyectos-heading">
+      {
+      allpublicaciones.map((publicacion) => (
+      <PublicacionCard 
+        imagen={publicacion.data.imagen} 
+        nombre={publicacion.data.nombre}
+        descripcion={publicacion.data.descripcion}
+        link={publicacion.data.link}
+        descarga={publicacion.data.descarga}
+      />
+      ))
+      }
+    </section>
 
   </main>
 </Layout>
