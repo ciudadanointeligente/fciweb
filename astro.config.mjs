@@ -5,6 +5,8 @@ import keystatic from '@keystatic/astro';
 
 import tailwindcss from '@tailwindcss/vite';
 
+import tailwindcss from '@tailwindcss/vite';
+
 import netlify from '@astrojs/netlify';
 
 import alpinejs from '@astrojs/alpinejs';

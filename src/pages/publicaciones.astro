@@ -1,10 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import PublicacionCard from '../components/PublicacionCard.astro';
+import { Image } from 'astro:assets';
+
+const publicaciones = await getCollection('publicaciones');
 ---
 
 
 <Layout title="Publicaciones">
   <main>
-    <h1 class="text-3xl font-bold text-center mt-10 mb-6 text-azul">Publicaciones</h1>
+    
+    <!-- header -->
+    <div class="bg-azul h-[300px] mix-blend-screen relative z-0 mt-[-30px] shadow-lg shadow-azul/45">
+      <div class="text-center align-middle py-[120px]">
+        <h1 class="text-4xl text-white font-extrabold">Publicaciones</h1>
+      </div>
+    </div>
+
   </main>
 </Layout>

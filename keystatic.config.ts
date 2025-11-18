@@ -80,6 +80,10 @@ export default config({
       path: 'src/content/proyectos/*',
       schema: {
         nombre: fields.slug({ name: { label: 'Nombre' } }),
+        order: fields.number({
+          label: 'Orden',
+          validation: { isRequired: true },
+        }),
         imagen: fields.image({
           label: 'Imagen',
           directory: 'public/images/proyectos',
@@ -110,6 +114,27 @@ export default config({
         home: fields.checkbox({
           label: 'Mostrar en Home',
           description: 'Marcar para mostrar este proyecto en la página de inicio.',
+        }),
+      },
+    }),
+
+    publicaciones: collection({
+      label: 'Publicaciones',
+      slugField: 'nombre',
+      path: 'src/content/publicaciones/*',
+      schema: {
+        nombre: fields.slug({ name: { label: 'Título' } }),
+        descripcion: fields.text({ label: 'Descripción', optional: true }),
+        imagen: fields.image({
+          label: 'imagen',
+          directory: 'src/assets/images/publicaciones',
+          publicPath: '/src/assets/images/publicaciones/',
+        }),
+        link: fields.url({ label: 'Link', optional: true }),
+        descarga: fields.file({
+          label: 'Documento',
+          directory: 'src/assets/pdfs/publicaciones',
+          publicPath: '/src/assets/pdfs/publicaciones/',
         }),
       },
     }),

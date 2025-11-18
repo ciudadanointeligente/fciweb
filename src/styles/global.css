@@ -1,5 +1,8 @@
 @import "tailwindcss";
 @import "tailwindcss-animated";
+@plugin "daisyui" {
+  themes: false;
+}
 
 @keyframes fade-in {
   from {

@@ -3,95 +3,139 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import CardProyecto from '../components/CardProyecto.astro';
 import { Image } from 'astro:assets';
+import HeroImage from '../assets/images/web/fci-hero-home.png';
+import FCINosotrosImg from '../assets/images/web/fci-nosotros-img3.png';
 
-const allProyectos = await getCollection('proyectos');
+const allProyectos = (await getCollection('proyectos')).sort((a, b) => a.data.order - b.data.order);
 
-const uniqueUbicaciones = [...new Set(allProyectos.map(proyecto => proyecto.data.ubicacion))];
-const uniqueStatus = [...new Set(allProyectos.map(proyecto => proyecto.data.status))];
+// const uniqueUbicaciones = [...new Set(allProyectos.map(proyecto => proyecto.data.ubicacion))];
+// const uniqueStatus = [...new Set(allProyectos.map(proyecto => proyecto.data.status))];
 ---
 
 
 <Layout title="Proyectos">
-  <main class="mx-auto py-8 w-full px-8">
-    <h1 class="text-3xl font-bold text-center mt-10 mb-6 text-azul">Nuestros Proyectos</h1>
 
-    <div class="flex flex-col md:flex-row justify-center gap-4 mb-8">
-      <div class="w-full md:w-1/4">
-        <label for="ubicacion-filter" class="block text-sm font-medium text-gray-700">Filtrar por Ubicación:</label>
-        <select id="ubicacion-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-azul focus:border-azul sm:text-sm rounded-md" client:load>
-          <option value="all">Todas</option>
-          {
-            uniqueUbicaciones.map(ubicacion => (
-              <option value={ubicacion}>{ubicacion}</option>
-            ))
-          }
-        </select>
-      </div>
+  <!-- header -->
+  <div class="bg-azul h-[300px] mix-blend-screen relative z-0 mt-[-30px] shadow-lg shadow-azul/45">
+    <div class="text-center align-middle py-[120px]">
+      <h1 class="text-4xl text-white font-extrabold">Proyectos</h1>
+    </div>
+  </div>
 
-      <div class="w-full md:w-1/4">
-        <label for="status-filter" class="block text-sm font-medium text-gray-700">Filtrar por Estado:</label>
-        <select id="status-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-azul focus:border-azul sm:text-sm rounded-md" client:load>
-          <option value="all">Todos</option>
-          {
-            uniqueStatus.map(status => (
-              <option value={status}>{status}</option>
-            ))
-          }
-        </select>
+
+
+  <main class="mx-auto text-center md:py-8 w-10/12 p-4 md:px-8 md:mt-12">
+
+    <!-- <div class="flex flex-col md:flex-row justify-center gap-4 mb-8"> -->
+    <!--   <div class="w-full md:w-1/4"> -->
+    <!--     <label for="ubicacion-filter" class="block text-sm font-medium text-gray-700">Filtrar por:</label> -->
+    <!--     <select id="ubicacion-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-azul focus:border-azul sm:text-sm rounded-md" client:load> -->
+    <!--       <option value="all">Todas</option> -->
+    <!--       { -->
+    <!--         uniqueUbicaciones.map(ubicacion => ( -->
+    <!--           <option value={ubicacion}>{ubicacion}</option> -->
+    <!--         )) -->
+    <!--       } -->
+    <!--     </select> -->
+    <!--   </div> -->
+    <!---->
+    <!--   <div class="w-full md:w-1/4"> -->
+    <!--     <label for="status-filter" class="block text-sm font-medium text-gray-700">Filtrar por Estado:</label> -->
+    <!--     <select id="status-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-azul focus:border-azul sm:text-sm rounded-md" client:load> -->
+    <!--       <option value="all">Todos</option> -->
+    <!--       { -->
+    <!--         uniqueStatus.map(status => ( -->
+    <!--           <option value={status}>{status}</option> -->
+    <!--         )) -->
+    <!--       } -->
+    <!--     </select> -->
+    <!--   </div> -->
+    <!-- </div> -->
+
+    <section aria-labelledby="proyectos-heading">
+      {
+      allProyectos.map((proyecto) => (
+      <CardProyecto 
+        imgSrc={proyecto.data.imagen} 
+        alt={proyecto.data.nombre}
+        title={proyecto.data.nombre}
+        description={proyecto.data.descripcion}
+        projectUrl={proyecto.data.link}
+        data-ubicacion={proyecto.data.ubicacion}
+        data-status={proyecto.data.status}
+      />
+      ))
+      }
+    </section>
+    <div class="flex justify-center md:justify-start w-full mt-2 md:mt-2">
+      <Image src={FCINosotrosImg} alt="Fundación Ciudadanía Inteligente" class="w-[150px] h-auto -rotate-2 md:w-[300px]" />
+    </div>
+
+  </main>
+    <!-- franja newsletter -->
+    <div class="md:mt-2 items-center bg-rosa mix-blend-screen">
+      <div class="py-5 px-5 md:py-20 md:px-32">
+        <div class="text-white text-sm md:text[24px] font-bold font-stretch-condensed">Súmate a nuestro newsletter</div>
+        <form class="py-2 font-['Mulish'] text-sm md:text-[18px]">
+          <input 
+            type="email" 
+            placeholder="Ingresa tu correo" 
+            aria-label="Ingresa tu correo electrónico" 
+            class="md:w-[600px] py-1.5 px-1.5 bg-white border border-gray-300 caret-black rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+            required
+          />
+          <button 
+            type="submit" 
+            class="py-1.5 px-1.5 m-2 text-sm bg-rosa text-white border rounded-md hover:bg-white hover:text-rosa transition-colors duration-800"
+          >
+            Suscribirse
+          </button>
+        </form>
       </div>
     </div>
 
-    <section aria-labelledby="proyectos-heading">
-        {
-          allProyectos.map(proyecto => (
-            <CardProyecto 
-              imgSrc={proyecto.data.imagen} 
-              alt={proyecto.data.nombre}
-              title={proyecto.data.nombre}
-              description={proyecto.data.descripcion}
-              projectUrl={proyecto.data.link}
-              data-ubicacion={proyecto.data.ubicacion}
-              data-status={proyecto.data.status}
-            />
-          ))
-        }
-    </section>
-  </main>
+      <!-- hero footer -->
+    <div class="flex justify-center mb-8 mask-b-from-90%">
+      <Image src={HeroImage} 
+        alt="Fundación Ciudadanía Inteligente" 
+        class="w-full h-[800px]" />
+    </div>
+
 </Layout>
 
 <!-- filtro -->
-<script is:inline>
-  const proyectosGrid = document.getElementById('proyectos-grid');
-  const ubicacionFilter = document.getElementById('ubicacion-filter');
-  const statusFilter = document.getElementById('status-filter');
-
-  function filterProjects() {
-    const selectedUbicacion = ubicacionFilter.value;
-    const selectedStatus = statusFilter.value;
-
-    console.log('Selected Ubicación:', selectedUbicacion);
-    console.log('Selected Status:', selectedStatus);
-
-    Array.from(proyectosGrid.children).forEach(card => {
-      const ubicacion = card.dataset.ubicacion;
-      const status = card.dataset.status;
-
-      console.log('Card Ubicación:', ubicacion, 'Card Status:', status);
-
-      const matchesUbicacion = selectedUbicacion === 'all' || ubicacion === selectedUbicacion;
-      const matchesStatus = selectedStatus === 'all' || status === selectedStatus;
-
-      if (matchesUbicacion && matchesStatus) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-
-  ubicacionFilter.addEventListener('change', filterProjects);
-  statusFilter.addEventListener('change', filterProjects);
-
-  // filtro inicial
-  filterProjects();
-</script>
+<!-- <script is:inline> -->
+<!--   const proyectosGrid = document.getElementById('proyectos-grid'); -->
+<!--   const ubicacionFilter = document.getElementById('ubicacion-filter'); -->
+<!--   const statusFilter = document.getElementById('status-filter'); -->
+<!---->
+<!--   function filterProjects() { -->
+<!--     const selectedUbicacion = ubicacionFilter.value; -->
+<!--     const selectedStatus = statusFilter.value; -->
+<!---->
+<!--     console.log('Selected Ubicación:', selectedUbicacion); -->
+<!--     console.log('Selected Status:', selectedStatus); -->
+<!---->
+<!--     Array.from(proyectosGrid.children).forEach(card => { -->
+<!--       const ubicacion = card.dataset.ubicacion; -->
+<!--       const status = card.dataset.status; -->
+<!---->
+<!--       console.log('Card Ubicación:', ubicacion, 'Card Status:', status); -->
+<!---->
+<!--       const matchesUbicacion = selectedUbicacion === 'all' || ubicacion === selectedUbicacion; -->
+<!--       const matchesStatus = selectedStatus === 'all' || status === selectedStatus; -->
+<!---->
+<!--       if (matchesUbicacion && matchesStatus) { -->
+<!--         card.style.display = 'block'; -->
+<!--       } else { -->
+<!--         card.style.display = 'none'; -->
+<!--       } -->
+<!--     }); -->
+<!--   } -->
+<!---->
+<!--   ubicacionFilter.addEventListener('change', filterProjects); -->
+<!--   statusFilter.addEventListener('change', filterProjects); -->
+<!---->
+<!--   // filtro inicial -->
+<!--   filterProjects(); -->
+<!-- </script> -->

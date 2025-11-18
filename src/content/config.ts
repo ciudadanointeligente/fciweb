@@ -46,7 +46,8 @@ const proyectos = defineCollection({
   type: 'data',
   schema: z.object({
     nombre: z.string(),
-    imagen: z.string(), // Keystatic image field stores path as string
+    imagen: z.string(),// Keystatic image field stores path as string
+    order: z.number(),
     ubicacion: z.enum(['America Latina', 'Chile']),
     descripcion: z.string(),
     link: z.string().url(),
@@ -56,4 +57,15 @@ const proyectos = defineCollection({
   }),
 });
 
-export const collections = { posts, people, people2, proyectos };
+const publicaciones = defineCollection({
+  type: 'data',
+  schema: z.object({
+    nombre: z.string(),
+    imagen: z.string().optional(), // Keystatic image field stores path as string
+    descripcion: z.string().optional(),
+    link: z.string().url(),
+    descarga: z.string().optional(),
+  }),
+});
+
+export const collections = { posts, people, people2, proyectos, publicaciones };
