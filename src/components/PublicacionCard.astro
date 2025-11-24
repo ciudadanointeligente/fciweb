@@ -5,18 +5,23 @@ const { nombre, imagen, descripcion, link, descarga } = Astro.props;
 
 
 <!-- cards de publicaciones -->
-
-<div class="relative flex flex-col w-full max-w-[394px] mb-2 md:h-[650px] md:inline-flex md:gap-2 md:mr-8 p-[17px_8px_17px_10px] md:shrink-0 rounded-md bg-white shadow-md shadow-gray-400">
-  <figure class="px-4 pt-4">
+<div class="relative flex flex-col w-full h-[600px] max-w-[394px] items-center mb-2 md:h-[650px] md:inline-flex md:gap-2 md:mr-8 md:items-center md:shrink-0 rounded-md bg-white shadow-md shadow-stone-400">
+  <figure class="pt-4">
     <Image src={imagen} alt="" class="rounded-sm" />
-  </figure>
-  <div class="items-center text-center mt-2 mx-4">
-    <p class="font-['Mulish'] text-azul">{nombre}</p>
-  <div class="absolute bottom-4 left-0 right-0 flex mx-2 font-['Mulish'] justify-center text-rosa text-md border border-rosa rounded-md shadow-md shadow-gray-400">
-    <a href={link} target="_blank" rel="noopener noreferrer" aria-label="DESCARGAR PDF">
-      DESCARGAR PDF <i class="text-rosa/40 fa-solid fa-download"></i>
-    </a>
-  </div>
+  </figure
+  <div class="items-center text-center mt-1 mx-6 mb-2">
+    <p class="font-['Mulish'] text-[18px] text-azul">{nombre}</p>
+    <button
+      type="button"
+      class="absolute bottom-4 left-2 right-2 flex mx-4 p-2 font-['Mulish'] text-rosa text-sm md:text-md border border-rosa rounded-md shadow-md shadow-stone-400 transition-colors duration-400 hover:bg-azul hover:text-white cursor-pointer"
+      onclick={`window.open('${link}', '_blank', 'noopener,noreferrer')`}
+      aria-label="DESCARGAR PDF"
+    >
+      <span class="flex w-full justify-between items-center">
+        <span class="text-left">DESCARGAR PDF</span>
+        <i class="fa-solid fa-download text-stone-300 transition-colors duration-400 hover:text-white"></i>
+      </span>
+    </button>
   </div>
 </div>
 

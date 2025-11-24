@@ -10,6 +10,9 @@
         "subtitle": {
           "type": "string"
         },
+        "imagepost": {
+          "type": "string"
+        },
         "category": {
           "type": "string"
         },

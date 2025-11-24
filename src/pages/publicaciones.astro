@@ -3,20 +3,23 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import PublicacionCard from '../components/PublicacionCard.astro';
 import { Image } from 'astro:assets';
+import HeroImage from '../assets/images/web/fci-hero-home.png';
+import FCINosotrosImg from '../assets/images/web/fci-nosotros-img3.png';
 
 const allpublicaciones = await getCollection('publicaciones')
 ---
 
 
 <Layout title="Publicaciones">
-    
-    <!-- header -->
-    <div class="bg-azul h-[300px] mix-blend-screen relative z-0 mt-[-30px] shadow-lg shadow-azul/45">
-      <div class="text-center align-middle py-[120px]">
-        <h1 class="text-4xl text-white font-extrabold">Publicaciones</h1>
-      </div>
-    </div>
 
+  <!-- header -->
+  <div class="bg-azul h-[150px] md:h-[300px] mix-blend-screen relative z-0 mt-[-30px] shadow-lg shadow-azul/45">
+    <div class="text-center align-middle py-10 md:py-[120px]">
+      <h1 class="text-2xl md:text-4xl text-white font-extrabold">Publicaciones</h1>
+    </div>
+  </div>
+
+  <!-- cards de publicaciones -->
   <main class="mx-auto text-center md:py-8 w-10/12 p-4 md:px-8 md:mt-12">
     <section aria-labelledby="proyectos-heading">
       {
@@ -32,5 +35,38 @@ const allpublicaciones = await getCollection('publicaciones')
       }
     </section>
 
+    <div class="flex justify-center md:justify-start w-full mt-2 md:mt-2">
+      <Image src={FCINosotrosImg} alt="Fundación Ciudadanía Inteligente" class="w-[150px] h-auto -rotate-2 md:w-[300px]" />
+    </div>
   </main>
+
+    <!-- franja newsletter -->
+    <div class="md:mt-24 items-center bg-rosa mix-blend-screen shadow-md shadow-stone-400">
+      <div class="py-5 px-5 md:py-20 md:px-32">
+        <div class="text-white text-sm md:text[24px] font-bold font-stretch-condensed">Súmate a nuestro newsletter</div>
+        <form class="py-2 font-['Mulish'] text-sm md:text-[18px]">
+          <input 
+            type="email" 
+            placeholder="Ingresa tu correo" 
+            aria-label="Ingresa tu correo electrónico" 
+            class="md:w-[600px] py-1.5 px-1.5 bg-white border border-stone-300 caret-black rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+            required
+          />
+          <button 
+            type="submit" 
+            class="py-1.5 px-1.5 m-2 text-sm bg-rosa text-white border rounded-md hover:bg-white hover:text-rosa transition-colors duration-800"
+          >
+            Suscribirse
+          </button>
+        </form>
+      </div>
+    </div>
+
+  <!-- hero footer -->
+  <div class="flex justify-center mb-8 mask-b-from-90%">
+    <Image src={HeroImage} 
+      alt="Fundación Ciudadanía Inteligente" 
+      class="w-full h-[800px]" />
+  </div>
+
 </Layout>

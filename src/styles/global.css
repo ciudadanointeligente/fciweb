@@ -22,3 +22,46 @@
   --color-rosa: #D504F9;
 }
 
+/* Custom styles for Markdoc content */
+.prose {
+  font-family: 'Mulish Variable', sans-serif;
+  color: #1a202c; /* Tailwind gray-900 */
+  line-height: 1.75;
+  font-size: 1.1rem; /* 18px */
+}
+
+.prose a {
+  color: var(--color-azul);
+  text-decoration: none;
+}
+
+/* Custom styles for tables within Markdoc content */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  overflow-x: auto; /* Enable horizontal scrolling on small screens */
+  display: block; /* Required for overflow-x to work */
+}
+
+.prose th,
+.prose td {
+  border: 1px solid #e2e8f0; /* Tailwind gray-200 */
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.prose th {
+  background-color: #f8fafc; /* Tailwind gray-50 */
+  font-weight: bold;
+  color: #1a202c; /* Tailwind gray-900 */
+}
+
+.prose tr:nth-child(even) {
+  background-color: #f8fafc; /* Tailwind gray-50 for even rows */
+}
+
+.prose tbody tr:hover {
+  background-color: #f0f4f8; /* Tailwind gray-100 on hover */
+}

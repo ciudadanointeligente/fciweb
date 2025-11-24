@@ -15,6 +15,12 @@ export default config({
         subtitle: fields.text({ label: 'Subtítulo' }),
         category: fields.text({ label: 'Categoría/s' }),
         author: fields.text({ label: 'Autor/s' }),
+        imagepost: fields.image({
+          label: 'Imagen Principal',
+          directory: 'src/assets/images/posts',
+          publicPath: '/src/assets/images/posts/',
+          optional: true,
+        }),
         content: fields.markdoc({
           label: 'Contenido',
           options: {

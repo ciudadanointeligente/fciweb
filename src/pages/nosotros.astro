@@ -16,28 +16,28 @@ const people2 = (await getCollection('people2')).sort((a, b) => a.data.order - b
   <main>
 
     <!-- header -->
-    <div class="bg-azul h-[300px] mix-blend-screen relative z-0 mt-[-30px] shadow-lg shadow-azul/45">
-      <div class="text-center align-middle py-[120px]">
-        <h1 class="text-4xl text-white font-extrabold">Nosotros</h1>
+    <div class="bg-azul h-[150px] md:h-[300px] mix-blend-screen relative z-0 mt-[-30px] shadow-lg shadow-azul/45">
+      <div class="text-center align-middle py-10 md:py-[120px]">
+        <h1 class="text-2xl md:text-4xl text-white font-extrabold">Nosotros</h1>
       </div>
     </div>
 
     <!-- hero -->
     <div class="flex flex-col mt-6 gap-2 text-center md:text-left md:gap-6 md:flex-row md:mt-16 mb-0">
       <div class="p-2 w-full md:pt-12 md:pl-50">
-        <div class="font-bold text-rosa text-4xl md:pb-6">16 AÑOS</div> 
+        <div class="font-bold text-rosa text-4xl pb-6 md:pb-6">16 AÑOS</div> 
         <div class="font-extrabold text-azul text-sm md:text-lg">HACIENDO DE LA DEMOCRACIA UNA EXPERIENCIA</div> 
         <div class="font-extrabold text-azul text-sm md:text-lg">COMPARTIDA, JUSTA Y TRANSFORMADORA</div> 
       </div>
-      <div class="p-2 w-full md:pr-56 text-black text-sm md:text-lg text-pretty">Somos una organización latinoamericana sin fines de lucro. Impulsamos cambios concretos: formamos ciudadanía, acompañamos gobiernos locales, desarrollamos herramientas digitales, construimos alianzas diversas e investigamos amenazas a la democracia para proponer soluciones que descentralicen el poder y activen la participación.</div>
+      <div class="p-6 w-full md:pr-56 text-black text-sm md:text-lg text-pretty">Somos una organización latinoamericana sin fines de lucro. Impulsamos cambios concretos: formamos ciudadanía, acompañamos gobiernos locales, desarrollamos herramientas digitales, construimos alianzas diversas e investigamos amenazas a la democracia para proponer soluciones que descentralicen el poder y activen la participación.</div>
     </div>
 
     <!-- valores -->
     <h2 class="md:pt-16 text-azul text-md md:text-[32px] font-bold text-center">VALORES</h2>
-    <div class="flex justify-center md:justify-start w-full md:-mt-[250px]">
+    <div class="flex justify-center md:justify-start w-full mt-1 md:-mt-[250px]">
       <Image src={FCINosotrosImg} alt="Fundación Ciudadanía Inteligente" class="w-[150px] h-auto -rotate-2 md:w-[400px]" />
     </div>
-    <div class="bg-azul h-[300px] mix-blend-screen relative -z-10 mt-2 md:mt-[-200px] shadow-lg shadow-azul/45" x-data="{ isVisible: false }" x-init="
+    <div class="bg-azul h-[350px] md:h-[300px] mix-blend-screen relative -z-10 mt-2 md:mt-[-200px] shadow-lg shadow-azul/45" x-data="{ isVisible: false }" x-init="
       let observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -54,34 +54,34 @@ const people2 = (await getCollection('people2')).sort((a, b) => a.data.order - b
         <li class="bg-white mx-2 my-2 px-2 rounded-sm" x-bind:class="{ 'opacity-0': !isVisible, 'animate-fade-down': isVisible }">Transparencia</li>
         <li class="bg-white mx-2 my-2 px-2 rounded-sm" x-bind:class="{ 'opacity-0': !isVisible, 'animate-fade-down': isVisible }">Participación</li>
         <li class="bg-white mx-2 my-2 px-2 rounded-sm" x-bind:class="{ 'opacity-0': !isVisible, 'animate-fade-down': isVisible }">Información</li>
-        <li class="bg-white mx-2 my-2 px-2 rounded-sm" x-bind:class="{ 'opacity-0': !isVisible, 'animate-fade-up': isVisible }">Democracia Ambiental</li>
+        <li class="text-nowrap bg-white mx-2 my-2 px-2 rounded-sm" x-bind:class="{ 'opacity-0': !isVisible, 'animate-fade-up': isVisible }">Democracia Ambiental</li>
         <li class="bg-white mx-2 my-2 px-2 rounded-sm" x-bind:class="{ 'opacity-0': !isVisible, 'animate-fade-up': isVisible }">Enfoque Regional</li>
         <li class="bg-white mx-2 my-2 px-2 rounded-sm" x-bind:class="{ 'opacity-0': !isVisible, 'animate-fade-up': isVisible }">Innovación</li>
       </ul>
     </div>
-    <Image src={FCINosotrosImg2} alt="Fundación Ciudadanía Inteligente" class="w-[200px] h-auto absolute left-1/2 -translate-x-1/2 -translate-y-1/2 place-content-baseline" />
+    <Image src={FCINosotrosImg2} alt="Fundación Ciudadanía Inteligente" class="invisible md:w-[200px] md:h-auto md:absolute md:left-1/2 -translate-x-1/2 -translate-y-1/2 md:place-content-baseline" />
 
     <!-- visión y misión -->
-    <div class="text-left px-10 md:flex md:pl-60 md:mt-32 md:justify-center md:text-left">
+    <div class="text-left px-10 mt-2 md:flex md:pl-60 md:mt-32 md:justify-center md:text-left">
       <div class="md:flex-1/2 text-pretty">
         <div class="flex flex-col items-center md:items-start">
-          <div class="text-white bg-rosa text-[27px] font-['Mulish'] font-normal py-1 px-3">Nuestra Visión</div>
+          <div class="text-white bg-rosa text-[27px] font-['Mulish'] font-normal py-1 px-2">Nuestra Visión</div>
         </div>
-        <div class="w-full text-[14px] text-pretty text-stone-900 md:max-w-4/5 md:text-[20px] md:mt-12">Trabajamos para transformar la política a través de la acción colectiva, la información accesible, el trabajo territorial y la colaboración con actores diversos. Apostamos por una democracia donde participar haga la diferencia, donde lo común tenga sentido, y donde todas las personas tengan voz y capacidad de decisión.</div>
+        <div class="w-full my-8 text-[16px] text-pretty text-stone-900 md:max-w-4/5 md:text-[20px] md:mt-12">Trabajamos para transformar la política a través de la acción colectiva, la información accesible, el trabajo territorial y la colaboración con actores diversos. Apostamos por una democracia donde participar haga la diferencia, donde lo común tenga sentido, y donde todas las personas tengan voz y capacidad de decisión.</div>
       </div>
       <div class="md:flex-1/2 text-pretty">
         <div class="flex flex-col items-center md:items-start">
-          <div class="text-white bg-rosa text-[27px] font-['Mulish'] font-normal py-1 px-3">Nuestra Misión</div>
+          <div class="text-white bg-rosa text-[27px] font-['Mulish'] font-normal py-1 px-2">Nuestra Misión</div>
         </div>
-        <div class="w-full text-[14px] text-pretty text-stone-900 md:max-w-4/5 md:text-[20px] md:mt-12">
+        <div class="w-full my-8 text-[16px] text-pretty text-stone-900 md:max-w-4/5 md:text-[20px] md:mt-12">
           Nos proyectamos en una región con ciudadanía informada y organizada, sociedad civil fuerte, instituciones abiertas, y una política que proteja la vida en común y la sostenibilidad del planeta. En los momentos difíciles, no solo reaccionamos: proponemos, articulamos y transformamos.</div>
       </div>
     </div>
 
     <!-- directorio -->
-    <div class="text-[#304FFE] text-center md:mt-32 md:mb-2 font-['Space_Mono'] text-[32px] font-normal">Directorio</div>
+    <div class="text-azul text-center md:mt-32 md:mb-2 font-['Space_Mono'] text-[32px] font-normal">Directorio</div>
 
-    <div class="text-pretty text-stone-900 font-['Space_Mono'] text-wrap text-sm px-4 text-center md:px-72 justify-center md:text-[20px]">Nuestro directorio está conformado por personas con amplia experiencia en <strong>democracia, derechos humanos y sociedad civil</strong>, que orientan estratégicamente nuestro trabajo.</div>
+    <div class="text-pretty text-stone-900 font-['Space_Mono'] text-sm px-4 text-center md:px-72 justify-center md:text-[20px]">Nuestro directorio está conformado por personas con amplia experiencia en <strong>democracia, derechos humanos y sociedad civil</strong>, que orientan estratégicamente nuestro trabajo.</div>
 
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:mt-12 p-8 justify-items-center max-w-6xl mx-auto">
       {people.map((person) => (
@@ -100,9 +100,9 @@ const people2 = (await getCollection('people2')).sort((a, b) => a.data.order - b
     </section>
 
     <!-- equipo -->
-    <div class="text-[#304FFE] text-center md:mt-20 md:mb-2 font-['Space_Mono'] text-[32px] font-normal">Equipo Ejecutivo</div>
+    <div class="text-azul text-center md:mt-20 md:mb-2 font-['Space_Mono'] text-[32px] font-normal">Equipo Ejecutivo</div>
 
-    <div class="text-pretty text-stone-900 font-['Space_Mono'] text-wrap text-sm px-4 text-center md:px-72 justify-center md:text-[20px]">Un equipo multidisciplinario de profesionales y activistas comprometidos con la <strong>transformación democrática desde el territorio, la investigación y la incidencia política.</strong></div>
+    <div class="text-pretty text-stone-900 font-['Space_Mono'] text-sm px-4 text-center md:px-72 justify-center md:text-[20px]">Un equipo multidisciplinario de profesionales y activistas comprometidos con la <strong>transformación democrática desde el territorio, la investigación y la incidencia política.</strong></div>
 
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:mt-12 p-8 justify-items-center max-w-6xl mx-auto">
       {people2.map((person) => (
@@ -129,7 +129,7 @@ const people2 = (await getCollection('people2')).sort((a, b) => a.data.order - b
             type="email" 
             placeholder="Ingresa tu correo" 
             aria-label="Ingresa tu correo electrónico" 
-            class="md:w-[600px] py-1.5 px-1.5 bg-white border border-gray-300 caret-black rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+            class="md:w-[600px] py-1.5 px-1.5 bg-white border border-stone-300 caret-black rounded-md focus:outline-none focus:ring-2 focus:ring-white"
             required
           />
           <button 

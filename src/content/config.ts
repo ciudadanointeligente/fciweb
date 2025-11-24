@@ -5,6 +5,7 @@ const posts = defineCollection({
   schema: z.object({
     title: z.string(),
     subtitle: z.string().optional(),
+    imagepost: z.string().optional(), // Keystatic image field stores path as string
     category: z.string().optional(),
     author: z.string().optional(),
   }),
