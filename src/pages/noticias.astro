@@ -27,35 +27,36 @@ const noticias = posts.map(post => ({
     </div>
   </div>
 
+<!-- loop noticias -->
   <main class="container mx-auto my-10 max-w-6xl">
     <div class="grid grid-cols-1 md:grid-cols-2 md:gap-12 gap-1 px-4 py-1">
       {posts.map(post => (
-        <a href={`/posts/${post.slug}`} class="block bg-white rounded-lg">
-          {post.data.imagepost && (
-            <Image 
-              src={post.data.imagepost} 
-              alt={post.data.title} 
-              width={600} 
-              height={400} 
-              class="w-full h-auto object-cover rounded-lg"
-            />
-          )}
-            <div class="py-1 md:p-4">
-              <h2 class="text-xl font-bold text-stone-900 mb-2">{post.data.title}</h2>
-              <p class="text-stone-600 text-sm">{post.data.subtitle}</p>
-              <div class="mt-2 mb-6 text-sm text-stone-500">
-                <div class="mb-4"><span>Por {post.data.author}</span></div>
-                {post.data.category && (
-                  <span>
-                    {post.data.category.split(', ').map(cat => {
-                      const categorySlug = cat.trim().toLowerCase().replace(/\s+/g, '-');
-                      return <a href={`/categorias/${categorySlug}`} class="bg-stone-200 px-2 py-0.5 rounded-full text-xs hover:bg-stone-300">{cat.trim()}</a>;
-                    })}
-                  </span>
-                )}
-              </div>
-            </div>
-        </a>
+      <a href={`/posts/${post.slug}`} class="block bg-white rounded-lg">
+        {post.data.imagepost && (
+        <Image 
+          src={post.data.imagepost} 
+          alt={post.data.title} 
+          width={600} 
+          height={400} 
+          class="w-full h-auto object-cover rounded-lg"
+        />
+        )}
+        <div class="py-1 md:p-4">
+          <h2 class="text-xl font-bold text-stone-900 mb-2">{post.data.title}</h2>
+          <p class="text-stone-600 text-sm">{post.data.subtitle}</p>
+          <div class="mt-2 mb-6 text-sm text-stone-500">
+            <div class="mb-4"><span>Por {post.data.author}</span></div>
+            {post.data.category && (
+            <span>
+              {post.data.category.split(', ').map(cat => {
+              const categorySlug = cat.trim().toLowerCase().replace(/\s+/g, '-');
+              return <a href={`/categorias/${categorySlug}`} class="bg-stone-200 px-2 py-0.5 rounded-full text-xs hover:bg-stone-300">{cat.trim()}</a>;
+              })}
+            </span>
+            )}
+          </div>
+        </div>
+      </a>
       ))}
     </div>
   </main>
@@ -63,7 +64,7 @@ const noticias = posts.map(post => ({
   <!-- franja newsletter -->
   <div class="md:mt-24 items-center bg-rosa mix-blend-screen shadow-md shadow-stone-400">
     <div class="py-5 px-5 md:py-20 md:px-32">
-        <div class="text-white text-sm md:text-[28px] font-bold">Súmate a nuestro newsletter de Ciudadanía Inteligente</div>
+      <div class="text-white text-sm md:text-[28px] font-bold">Súmate a nuestro newsletter de Ciudadanía Inteligente</div>
       <form class="py-2 font-['Mulish'] text-sm md:text-[18px]">
         <input 
           type="email" 

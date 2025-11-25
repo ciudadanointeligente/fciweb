@@ -7,7 +7,7 @@ import Lealtad from '../assets/images/logos/lealtad.png';
 
 <!-- footer global -->
 <footer>
-  <div class="w-full bg-black py-5 mt-0">
+  <div class="w-full bg-black mt-0">
     <div class="flex justify-center mb-2">
       <h2 class="text-stone-200 text-sm md:text-2xl font-bold">Ciudadanía_Inteligente</h2>
     </div>
@@ -35,8 +35,20 @@ import Lealtad from '../assets/images/logos/lealtad.png';
       <a href="/lealtad"><Image src={Lealtad} alt="Lealtad" class="w-22 h-auto"/></a>
     </div>
 
-    <hr class="my-5 h-0.5 border border-stone-600 bg-stone-300" />
-    <div class="text-center text-stone-200 text-sm">
+    <!-- footer menú -->
+        <div class="text-center mt-5 mb-2 align-bottom text-stone-200 text-xs text-sm font-[Mulish]">
+
+      <a href="/" aria-label="link inicio" data-astro-reload class="px-2 text-sm">Inicio</a>
+      <a href="/nosotros" aria-label="link nosotros" class="px-2 text-sm">Nosotros</a>
+      <a href="/proyectos" aria-label="link proyectos" class="px-2 text-sm">Proyectos</a>
+      <a href="/publicaciones" aria-label="link publicaciones" class="px-2 text-sm">Publicaciones</a>
+      <a href="/noticias" aria-label="link noticias" class="px-2 text-sm">Noticias</a>
+      <a href="/transparencia" aria-label="link informes" class="px-2 text-sm">Transparencia</a>
+      <a href="/contacto" aria-label="link contacto" class="px-2 text-sm">Contacto</a>
+    
+</div>
+    <hr class="h-0.1 border border-stone-600 bg-stone-900" />
+    <div class="text-center align-bottom text-stone-200 text-xs p-2">
       &copy; {new Date().getFullYear()} Fundación Ciudadanía Inteligente. Todos los derechos reservados.
     </div>
   </div>
