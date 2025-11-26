@@ -1,5 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import Transparencia1 from '../assets/images/web/fci-transparencia1.png';
+import Transparencia2 from '../assets/images/web/fci-transparencia2.png';
+import BocinaImage from '../assets/images/web/fci-megafono.png';
+import HeroImage from '../assets/images/web/fci-hero-home.png';
+import BocinaImage2 from '../assets/images/web/fci-megafono-2.png';
+import Undef from '../assets/images/web/logo-undef.png';
+import Avina from '../assets/images/web/logo-avina.png';
+import OpenSociety from '../assets/images/web/logo-osf.png';
+import Idrc from '../assets/images/web/logo-idrc.png';
+import Ned from '../assets/images/web/logo-ned.png';
+import Karibu from '../assets/images/web/logo-karibu.png';
+import Luminate from '../assets/images/web/logo-luminate.png';
+import Oxfam from '../assets/images/web/logo-oxfam.png';
+import Ue from '../assets/images/web/logo-union-europea.png';
+import Aecid from '../assets/images/web/logo-aecid.png';
+import Packard from '../assets/images/web/logo-packard.png';
+import Fes from '../assets/images/web/logo-fes.png';
 ---
 
 
@@ -14,6 +32,79 @@ import Layout from '../layouts/Layout.astro';
 
   <main>
 
+    <!-- transparencia -->
+    <div class="md:mt-22 overflow-x-hidden">
+      <div class="flex flex-row">
+        <div class="w-1/3 flex place-content-end">
+          <Image src={Transparencia1}
+            alt="Megáfono Fundación Ciudadanía Inteligente" 
+            class="w-full h-auto"/>
+        </div>
+        <div class="w-2/3 self-start flex flex-col items-center justify-center px-20 py-2">
+          <p class="font-normal text-center text-[22px] text-stone-800">
+            En Ciudadanía Inteligente creemos que la <b>transparencia fortalece la democracia</b>. Por eso ponemos a disposición de todas las personas información clara sobre cómo nos financiamos, quiénes apoyan nuestro trabajo y qué resultados logramos cada año.
+          </p> 
+          <p class="font-bold text-center text-[32px] text-azul pt-4">¿CÓMO NOS FINANCIAMOS?</p>
+          <p class="font-normal text-center text-[22px] text-stone-800">Nos financiamos principalmente a través de <b>postulación de proyectos a entidades internacionales y organismos de cooperación</b>, además de alianzas con instituciones públicas y otras organizaciones de sociedad civil.</p>
+          <p class="font-bold text-center text-[32px] text-azul md:pt-16">QUIENES APOYAN NUESTRO TRABAJO</p>
+
+          <p></p>
+        </div>
+        <div class="w-1/3 flex">
+          <Image src={Transparencia2}
+            alt="Megáfono Fundación Ciudadanía Inteligente" 
+            class="w-full h-auto"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- logos colaboradores -->
+    <div class="w-8/12 bg-white/80 items-center justify-center text-center mx-auto md:my-4 p-4">
+      <Image src={OpenSociety} alt="Logo Open Society Foundations" class="w-48 h-auto mx-4 my-2 inline-block hover:opacity-70"/>
+      <Image src={Ue} alt="Logo Unión Europea" class="w-32 h-auto mx-4 my-2 inline-block hover:opacity-70"/>
+      <Image src={Ned} alt="Logo NED" class="w-52 h-auto mx-4 my-2 inline-block hover:opacity-70"/>
+      <Image src={Karibu} alt="Logo Karibu" class="w-52 h-auto mx-4 my-2 inline-block hover:opacity-70"/>
+      <Image src={Fes} alt="Logo FES" class="w-32 h-auto mx-4 my-2 inline-block hover:opacity-70"/>
+      <Image src={Luminate} alt="Logo Luminate" class="w-42 h-auto mx-4 my-2 inline-block hover:opacity-70"/>
+      <Image src={Undef} alt="Logo Undef" class="w-48 h-auto mx-4 my-2 inline-block hover:opacity-70"/>
+      <Image src={Idrc} alt="Logo IDRC" class="w-64 h-auto mx-4 my-2 inline-block hover:opacity-70"/>
+      <Image src={Aecid} alt="Logo AECID" class="w-96 h-auto mx-4 my-2 inline-block hover:opacity-70"/>
+      <Image src={Avina} alt="Logo Avina" class="w-32 h-auto mx-4 my-2 inline-block hover:opacity-70"/>
+      <Image src={Packard} alt="Logo Packard" class="w-64 h-auto mx-4 my-2 inline-block hover:opacity-70"/>
+      <Image src={Oxfam} alt="Logo Oxfam" class="w-32 h-auto mx-4 my-6 inline-block hover:opacity-70"/>
+    </div>
+
+    <!-- memorias y reportes -->
+
+
+    <!-- franja newsletter -->
+    <div class="md:mt-24 items-center bg-rosa mix-blend-screen shadow-md shadow-stone-400">
+      <div class="py-5 px-5 md:py-20 md:px-32">
+        <div class="text-white text-sm md:text-[28px] font-bold">Súmate a nuestro newsletter de Ciudadanía Inteligente</div>
+        <form class="py-2 font-['Mulish'] text-sm md:text-[18px]">
+          <input 
+            type="email" 
+            placeholder="Ingresa tu correo" 
+            aria-label="Ingresa tu correo electrónico" 
+            class="md:w-[600px] py-1.5 px-1.5 bg-white border border-stone-300 caret-black rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+            required
+          />
+          <button 
+            type="submit" 
+            class="py-1.5 px-1.5 m-2 text-sm bg-rosa text-white border rounded-md hover:bg-white hover:text-rosa transition-colors duration-800"
+          >
+            Suscribirse
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- hero footer -->
+    <div class="flex justify-center mb-8 mask-b-from-90%">
+      <Image src={HeroImage} 
+        alt="Fundación Ciudadanía Inteligente" 
+        class="w-full h-[800px]" />
+    </div>
   </main>
 
 </Layout>
