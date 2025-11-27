@@ -21,6 +21,10 @@ export default config({
           publicPath: '/src/assets/images/posts/',
           optional: true,
         }),
+        date: fields.date({
+          label: 'Fecha de Publicación',
+          validation: { isRequired: true },
+        }),
         content: fields.markdoc({
           label: 'Contenido',
           options: {
@@ -29,6 +33,10 @@ export default config({
               publicPath: '../../assets/images/posts/',
             },
           },
+        }),
+        showOnHome: fields.checkbox({
+          label: 'Mostrar en Home',
+          description: 'Marcar para mostrar esta noticia en el carrusel de la página de inicio.',
         }),
       },
     }),
@@ -141,6 +149,48 @@ export default config({
           label: 'Documento',
           directory: 'src/assets/pdfs/publicaciones',
           publicPath: '/src/assets/pdfs/publicaciones/',
+        }),
+        showOnHome: fields.checkbox({
+          label: 'Mostrar en Home',
+          description: 'Marcar para mostrar esta publicación en la sección de publicaciones del home.',
+        }),
+      },
+    }),
+
+    documentos: collection({
+      label: 'Documentos',
+      slugField: 'nombre',
+      path: 'src/content/documentos/*',
+      schema: {
+        nombre: fields.slug({ name: { label: 'Nombre' } }),
+        link: fields.url({ label: 'Link', optional: true }),
+        order: fields.number({
+          label: 'Orden',
+          validation: { isRequired: true },
+        }),
+        descarga: fields.file({
+          label: 'Documento',
+          directory: 'src/assets/pdfs/documentos',
+          publicPath: '/src/assets/pdfs/documentos/',
+        }),
+      },
+    }),
+
+    memorias: collection({
+      label: 'Memorias',
+      slugField: 'nombre',
+      path: 'src/content/memorias/*',
+      schema: {
+        nombre: fields.slug({ name: { label: 'Nombre' } }),
+        link: fields.url({ label: 'Link', optional: true }),
+        order: fields.number({
+          label: 'Orden',
+          validation: { isRequired: true },
+        }),
+        descarga: fields.file({
+          label: 'Documento',
+          directory: 'src/assets/pdfs/memorias',
+          publicPath: '/src/assets/pdfs/memorias/',
         }),
       },
     }),

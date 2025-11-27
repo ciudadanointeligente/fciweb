@@ -3,6 +3,7 @@ interface Publication {
   image: string;
   title: string;
   description: string;
+  link: string;
 }
 
 interface Props {
@@ -15,7 +16,7 @@ const { publications } = Astro.props;
 
 <!-- slider de noticias -->
 <div class="relative w-full mx-auto" id="slider-container" role="region" aria-roledescription="carousel">
-  <div class="text-pretty relative h-60 overflow-hidden rounded-lg">
+  <div class="text-pretty relative h-[300px] overflow-hidden rounded-lg">
     <!-- slider container -->
     <div
       class="text-pretty flex md:w-full justify-center items-center h-full"
@@ -25,31 +26,35 @@ const { publications } = Astro.props;
     >
       <template x-for="(publication, index) in publications" :key="index">
         <div
-          class="text-pretty absolute w-[700px] h-[300px] transition-all duration-500 ease-in-out transform rounded-lg overflow-hidden top-0 left-1/2"
+          class="text-pretty absolute w-[700px] h-[300px] transition-all duration-500 ease-in-out transform rounded-lg overflow-hidden top-0 left-1/2 cursor-pointer"
+          @click="activeSlide = index"
           x-show="Math.abs(activeSlide - index) <= 1 || (activeSlide === 0 && index === publications.length - 1) || (activeSlide === publications.length - 1 && index === 0)"
           :class="{
-          'opacity-100 z-10 scale-100': activeSlide === index,
-          'opacity-50 z-0 scale-90 blur-sm': (Math.abs(activeSlide - index) === 1) || (activeSlide === 0 && index === publications.length - 1) || (activeSlide === publications.length - 1 && index === 0),
-          'pointer-events-none': !(Math.abs(activeSlide - index) <= 1 || (activeSlide === 0 && index === publications.length - 1) || (activeSlide === publications.length - 1 && index === 0))
+            'opacity-100 z-10 scale-100': activeSlide === index,
+            'opacity-50 z-0 scale-90 blur-sm': (Math.abs(activeSlide - index) === 1) || (activeSlide === 0 && index === publications.length - 1) || (activeSlide === publications.length - 1 && index === 0),
+            'pointer-events-none': !(Math.abs(activeSlide - index) <= 1 || (activeSlide === 0 && index === publications.length - 1) || (activeSlide === publications.length - 1 && index === 0))
           }"
           :style="{
-          transform: activeSlide === index ? 'translateX(-50%)' : (index === (activeSlide - 1 + publications.length) % publications.length) ? 'translateX(calc(-50% - 400px))': (index === (activeSlide + 1) % publications.length) ? 'translateX(calc(-50% + 400px))': 'translateX(-50%)'
+            transform: activeSlide === index ? 'translateX(-50%)' : (index === (activeSlide - 1 + publications.length) % publications.length) ? 'translateX(calc(-50% - 400px))': (index === (activeSlide + 1) % publications.length) ? 'translateX(calc(-50% + 400px))': 'translateX(-50%)'
           }"
-          x-transition:enter="transition ease-out duration-1000"
-          x-transition:enter-start="opacity-0"
-          x-transition:enter-end="opacity-100"
-          x-transition:leave="transition ease-in duration-1000"
-          x-transition:leave-start="opacity-100"
-          x-transition:leave-end="opacity-0"
           :aria-live="activeSlide === index ? 'polite' : 'off'"
           :aria-hidden="activeSlide !== index"
         >
           <div class="text-pretty relative bg-white rounded-lg w-full h-full overflow-hidden">
-            <img :src="publication.image" :alt="publication.title" class="absolute inset-0 w-full h-full object-cover cursor-pointer" @click="activeSlide = index">
-            <div class="absolute bottom-0 left-0 right-0 bg-black/90 bg-opacity-50 text-white text-wrap p-2 h-1/4 flex flex-col items-center-safe">
-              <div class="text-[12px] md:text-[16px] text-wrap font-['Mulish'] font-normal" x-text="publication.title"></div>
-              <div class="text-[12px] md:text-[14px] text-wrap font-['Mulish'] font-normal" x-text="publication.description"></div>
-            </div>
+            <template x-if="activeSlide === index">
+              <a :href="publication.link" class="absolute inset-0 w-full h-full text-decoration-none">
+                <img :src="publication.image" :alt="publication.title" class="w-full h-full object-cover" @click.stop />
+                <div class="absolute bottom-0 left-0 right-0 bg-black/90 bg-opacity-50 text-white text-wrap p-2 h-1/4 flex flex-col items-center-safe">
+                  <div class="text-[12px] md:text-[16px] text-wrap font-['Mulish'] font-normal" x-text="publication.title"></div>
+                </div>
+              </a>
+            </template>
+            <template x-if="activeSlide !== index">
+              <img :src="publication.image" :alt="publication.title" class="w-full h-full object-cover" />
+              <div class="absolute bottom-0 left-0 right-0 bg-black/90 bg-opacity-50 text-white text-wrap p-2 h-1/4 flex flex-col items-center-safe">
+                <div class="text-[12px] md:text-[16px] text-wrap font-['Mulish'] font-normal" x-text="publication.title"></div>
+              </div>
+            </template>
           </div>
         </div>
       </template>

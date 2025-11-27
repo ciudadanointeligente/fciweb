@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import Transparencia1 from '../assets/images/web/fci-transparencia1.png';
 import Transparencia2 from '../assets/images/web/fci-transparencia2.png';
@@ -18,6 +19,9 @@ import Ue from '../assets/images/web/logo-union-europea.png';
 import Aecid from '../assets/images/web/logo-aecid.png';
 import Packard from '../assets/images/web/logo-packard.png';
 import Fes from '../assets/images/web/logo-fes.png';
+
+const allDocumentos = (await getCollection('documentos')).sort((a, b) => a.data.order - b.data.order);
+const allMemorias = (await getCollection('memorias')).sort((a, b) => a.data.order - b.data.order);
 ---
 
 
@@ -35,25 +39,25 @@ import Fes from '../assets/images/web/logo-fes.png';
     <!-- transparencia -->
     <div class="md:mt-22 overflow-x-hidden">
       <div class="flex flex-row">
-        <div class="w-1/3 flex place-content-end">
+        <div class="md:w-1/3 flex place-content-end">
           <Image src={Transparencia1}
             alt="Megáfono Fundación Ciudadanía Inteligente" 
-            class="w-full h-auto"/>
+            class="w-0 h-auto md:w-full md:h-auto"/>
         </div>
-        <div class="w-2/3 self-start flex flex-col items-center justify-center px-20 py-2">
-          <p class="font-normal text-center text-[22px] text-stone-800">
+        <div class="md:w-2/3 self-start flex flex-col items-center justify-center md:px-20 md:py-2">
+          <p class="font-normal text-center px-4 md:text-[22px] text-stone-800">
             En Ciudadanía Inteligente creemos que la <b>transparencia fortalece la democracia</b>. Por eso ponemos a disposición de todas las personas información clara sobre cómo nos financiamos, quiénes apoyan nuestro trabajo y qué resultados logramos cada año.
           </p> 
-          <p class="font-bold text-center text-[32px] text-azul pt-4">¿CÓMO NOS FINANCIAMOS?</p>
-          <p class="font-normal text-center text-[22px] text-stone-800">Nos financiamos principalmente a través de <b>postulación de proyectos a entidades internacionales y organismos de cooperación</b>, además de alianzas con instituciones públicas y otras organizaciones de sociedad civil.</p>
-          <p class="font-bold text-center text-[32px] text-azul md:pt-16">QUIENES APOYAN NUESTRO TRABAJO</p>
+          <p class="font-bold text-center md:text-[32px] text-azul pt-4">¿CÓMO NOS FINANCIAMOS?</p>
+          <p class="font-normal text-center px-4 md:text-[22px] text-stone-800">Nos financiamos principalmente a través de <b>postulación de proyectos a entidades internacionales y organismos de cooperación</b>, además de alianzas con instituciones públicas y otras organizaciones de sociedad civil.</p>
+          <p class="font-bold text-center md:text-[32px] text-azul md:pt-16">QUIENES APOYAN NUESTRO TRABAJO</p>
 
           <p></p>
         </div>
-        <div class="w-1/3 flex">
+        <div class="md:w-1/3 flex">
           <Image src={Transparencia2}
             alt="Megáfono Fundación Ciudadanía Inteligente" 
-            class="w-full h-auto"/>
+            class="w-0 h-auto md:w-full md:h-auto"/>
         </div>
       </div>
     </div>
@@ -75,7 +79,35 @@ import Fes from '../assets/images/web/logo-fes.png';
     </div>
 
     <!-- memorias y reportes -->
+    <p class="font-bold text-center md:text-[32px] text-azul md:pt-12">REPORTES Y DOCUMENTOS</p>
+    <p class="font-normal text-center md:text-[22px] text-stone-800 md:pb-8">Accede a nuestras memorias y otros documentos importantes de gestión.</p>
 
+    <div class="flex md:flex-row flex-col items-center justify-center">
+      <div class="align-top w-1/2 h-full">
+<h1 class="font-bold text-center md:text-[28px] text-azul md:pt-4">Memorias Anuales</h1>
+        {
+        allMemorias.map((memoria) => (
+        <div class="w-10/12 bg-white/80 items-center justify-center text-center mx-auto my-2 p-2 rounded-md shadow-sm shadow-stone-400 hover:shadow-sm hover:shadow-stone-500 transition-shadow duration-300">
+          <a href={memoria.data.link} target="_blank" rel="noopener noreferrer" class="text-stone-800 font-semibold text-[16px] hover:text-azul transition-colors duration-300">
+            {memoria.data.nombre}
+          </a>
+        </div>
+        ))
+        }
+      </div>
+      <div class="align-top w-1/2 h-full">
+<h1 class="font-bold text-center md:text-[28px] text-azul md:pt-4">Documentos de Gestión</h1>
+        {
+        allDocumentos.map((documento) => (
+        <div class="w-10/12 bg-white/80 items-center justify-center text-center mx-auto my-2 p-2 rounded-md shadow-sm shadow-stone-400 hover:shadow-sm hover:shadow-stone-500 transition-shadow duration-300">
+          <a href={documento.data.link} target="_blank" rel="noopener noreferrer" class="text-stone-800 font-semibold text-[16px] hover:text-azul transition-colors duration-300">
+            {documento.data.nombre}
+          </a>
+        </div>
+        ))
+        }
+      </div>
+    </div>
 
     <!-- franja newsletter -->
     <div class="md:mt-24 items-center bg-rosa mix-blend-screen shadow-md shadow-stone-400">

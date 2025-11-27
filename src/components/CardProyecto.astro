@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 const { nombre, descripcion, imagen, link } = Astro.props;
 ---
 
@@ -7,7 +6,7 @@ const { nombre, descripcion, imagen, link } = Astro.props;
 <!-- cards de proyectos -->
 <div class="flex flex-col w-full max-w-[394px] mb-2 md:h-[550px] md:inline-flex justify-start items-start md:gap-2 md:mr-8 p-[17px_8px_17px_10px] md:shrink-0 rounded-md bg-white shadow-md shadow-stone-400">
   <div class="w-full place-content-stretch overflow-hidden rounded-md mt-1">
-    <Image src={imagen} alt={descripcion} class="md:h-[295px] w-full object-cover image-fade-in" />
+    <img src={imagen} alt={descripcion} class="md:h-[295px] w-full object-cover image-fade-in" />
   </div>
   <div class="w-full px-2 font-['Space Mono'] font-normal text-[28px] text-left">{nombre}</div>
   <p class="px-2 py-auto text-[14px] text-left text-pretty font-normal font-['Mulish']">{descripcion}</p>

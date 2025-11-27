@@ -1,35 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import BocinaImage from '../assets/images/web/fci-megafono.png';
 import BocinaImage2 from '../assets/images/web/fci-megafono-2.png';
 import HeroImage from '../assets/images/web/fci-hero-home.png';
 import GenteFondoImage from '../assets/images/web/fci-gente-home.png';
-import ProjectImage1 from '../assets/images/web/fci-proyectocard1.png';
-import ProjectImage2 from '../assets/images/web/fci-proyectocard2.png';
-import ProjectImage3 from '../assets/images/web/fci-proyectocard3.png';
 import Boton from '../components/Boton.astro';
 import CardProyecto from '../components/CardProyecto.astro';
 import SliderPublicaciones from '../components/SliderPublicaciones.astro';
+import PublicacionCard from '../components/PublicacionCard.astro';
 
-// publicaciones en home
-const myPublications = [
-  {
-    image: '/fci-archivocard1.png',
-    title: 'Declaración de Ciudadanía Inteligente por veredicto en caso SQM',
-    description: 'Lee nuestra declaración institucional',
-  },
-  {
-    image: '/fci-archivocard2.png',
-    title: 'Elecciones 2025 en Chile: lo que tienes que saber antes de votar',
-    description: 'Qué se elige y dónde se vota.',
-  },
-  {
-    image: '/fci-archivocard3.png',
-    title: '5 Ensayos: innovaciones institucionales en los procesos constitucionales',
-    description: '',
-  },
-];
+const allProjects = await getCollection('proyectos');
+const homeProjects = allProjects.filter(project => project.data.home).sort((a, b) => a.data.order - b.data.order);
+
+const allPosts = await getCollection('posts');
+const homePosts = allPosts.filter(post => post.data.showOnHome).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+).map(post => ({
+  image: post.data.imagepost || '', // Use imagepost or a default empty string
+  title: post.data.title,
+  description: post.data.subtitle || '', // Use subtitle or a default empty string
+  link: `/posts/${post.slug}` // Assuming a default link structure for posts
+}));
+
+const allPublications = await getCollection('publicaciones');
+const homePublications = allPublications.filter(pub => pub.data.showOnHome).slice(0, 3);
+
 ---
 
 
@@ -93,24 +90,17 @@ const myPublications = [
     <h2 id="proyectos-heading" class="text-azul text-md md:text-[32px] font-bold text-center mb-10 mt-10">REVISA NUESTROS PROYECTOS</h2>
     <section aria-labelledby="proyectos-heading">
       <div class="flex flex-col w-auto items-center gap-4 md:flex-row md:flex-wrap md:justify-center">
-        <CardProyecto 
-          imagen={ProjectImage1.src} alt="Ciudadanía Inteligente - Proyecto Transparentes"
-          nombre="Transparentes"
-          descripcion="Fortalece la transparencia, la participación ciudadana y la rendición de cuentas a través de una red de organizaciones, una formación en línea, investigaciones y una plataforma de seguimiento legislativo. Iniciativa de Chile Transparente y Ciudadanía Inteligente."
-          link="https://enlace-al-proyecto.com"
-        />
-        <CardProyecto 
-          imagen={ProjectImage2.src} alt="Ciudadanía Inteligente - DemocraciaKit"
-          nombre="DemocraciaKit"
-          descripcion="Prueba nuestra nueva Herramienta interactiva, puedes acceder a casos de éxito en gobiernos locales y te guía en la construcción de proyectos con énfasis en la participación ciudadana y la colaboración."
-          link="https://enlace-al-proyecto.com"
-        />
-        <CardProyecto 
-          imagen={ProjectImage3.src} alt="Proyecto Transparencia Activa"
-          nombre="Del Dicho al Hecho"
-          descripcion="Analizamos si las promesas de campaña de las y los candidatos presidenciales llegan a convertirse en leyes: Del Dicho al Hecho revela el nivel real de cumplimiento de los gobiernos en Chile."
-          link="https://enlace-al-proyecto.com"
-        />
+        {
+          homeProjects.map(project => (
+            <CardProyecto 
+              imagen={project.data.imagen} 
+              alt={`Ciudadanía Inteligente - Proyecto ${project.data.nombre}`}
+              nombre={project.data.nombre}
+              descripcion={project.data.descripcion}
+              link={project.data.link}
+            />
+          ))
+        }
       </div>
     </section>
 
@@ -121,10 +111,33 @@ const myPublications = [
 
     <!-- ver noticias -->
     <h2 class="text-azul text-md md:text-[32px] md:mt-10 font-bold text-center mb-10">REVISA NUESTRAS ÚLTIMAS NOTICIAS</h2>
-    <div class="mx-auto text-wrap"><SliderPublicaciones publications={myPublications} /></div>
+    <div class="mx-auto text-wrap"><SliderPublicaciones publications={homePosts} /></div>
     <!-- Botón Ver más noticias -->
-    <div class="flex justify-center my-10">
+    <div class="flex justify-center my-10 mb-20">
       <Boton href="/noticias">VER MÁS</Boton>
+    </div>
+
+    <!-- cards de publicaciones -->
+    <h2 id="publicaciones-heading" class="text-azul text-md md:text-[32px] font-bold text-center mb-10 pt-10">NUESTRAS ÚLTIMAS PUBLICACIONES</h2>
+    <section aria-labelledby="publicaciones-heading">
+      <div class="flex flex-col w-auto items-center gap-4 md:flex-row md:flex-wrap md:justify-center">
+        {
+          homePublications.map(publication => (
+            <PublicacionCard
+              nombre={publication.data.nombre}
+              descripcion={publication.data.descripcion || ''}
+              imagen={publication.data.imagen || ''}
+              link={publication.data.link}
+              descarga={publication.data.descarga || ''}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- botón ver más publicaciones -->
+    <div class="flex justify-center my-10 md:mb-20">
+      <Boton href="/publicaciones">VER MÁS</Boton>
     </div>
 
     <!-- franja newsletter -->

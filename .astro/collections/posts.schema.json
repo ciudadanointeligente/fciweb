@@ -13,18 +13,39 @@
         "imagepost": {
           "type": "string"
         },
+        "date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
         "category": {
           "type": "string"
         },
         "author": {
           "type": "string"
         },
+        "showOnHome": {
+          "type": "boolean",
+          "default": false
+        },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
-        "title"
+        "title",
+        "date"
       ],
       "additionalProperties": false
     }

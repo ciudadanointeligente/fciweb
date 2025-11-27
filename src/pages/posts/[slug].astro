@@ -15,7 +15,7 @@ const categoriesHtml = categoryNames.length > 0 ?
   `<span>
     ${categoryNames.map(name => {
       const categorySlug = name.trim().toLowerCase().replace(/\s+/g, '-');
-      return `<a href="/categorias/${categorySlug}" class="ml-1 bg-stone-200 px-2 py-0.5 rounded-full text-xs hover:bg-stone-300">${name}</a>`;
+      return `<a href="/categorias/${categorySlug}" class="ml-1 bg-stone-200 px-2 py-0.5 rounded-full text-xs hover:bg-stone-800 hover:text-white">${name}</a>`;
     }).join('')}
   </span>` : '';
 

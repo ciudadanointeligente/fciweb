@@ -37,35 +37,36 @@ const pageTitle = category.replace(/-/g, ' ').split(' ').map(word => word.charAt
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
       {filteredPosts.length > 0 ? (
         filteredPosts.map(post => (
-          <a href={`/posts/${post.slug}`} class="block bg-white rounded-lg">
-            {post.data.imagepost && (
-              <Image
-                src={post.data.imagepost}
-                alt={post.data.title}
-                width={600}
-                height={400}
-                class="w-full h-auto object-cover rounded-lg"
-              />
+      <a href={`/posts/${post.slug}`} class="block bg-white rounded-lg">
+        {post.data.imagepost && (
+        <Image
+          src={post.data.imagepost}
+          alt={post.data.title}
+          width={600}
+          height={400}
+          class="w-full h-auto object-cover rounded-lg"
+        />
+        )}
+        <div class="p-4">
+          <h2 class="text-xl font-bold text-stone-900 mb-2">{post.data.title}</h2>
+          <p class="text-stone-600 text-sm">{post.data.subtitle}</p>
+          <p class="text-stone-400 text-sm mt-2">Leer noticia</p>
+          <div class="mt-2 text-sm text-stone-500">
+            <div class="mb-4"><span>Por {post.data.author}</span></div>
+            {post.data.category && (
+            <span>
+              {post.data.category.split(', ').map(cat => {
+              const categorySlug = cat.trim().toLowerCase().replace(/\s+/g, '-');
+              return <a href={`/categorias/${categorySlug}`} class="bg-stone-100 ml-1 px-2 py-0.5 rounded-full text-xs hover:bg-stone-800 hover:text-white transition delay-75 duration-300 ease-in-out">{cat.trim()}</a>;
+              })}
+            </span>
             )}
-            <div class="p-4">
-              <h2 class="text-xl font-bold text-stone-900 mb-2">{post.data.title}</h2>
-              <p class="text-stone-600 text-sm">{post.data.subtitle}</p>
-              <div class="mt-2 text-sm text-stone-500">
-                <div class="mb-4"><span>Por {post.data.author}</span></div>
-                {post.data.category && (
-                  <span>
-                    {post.data.category.split(', ').map(cat => {
-                      const categorySlug = cat.trim().toLowerCase().replace(/\s+/g, '-');
-                      return <a href={`/categorias/${categorySlug}`} class="bg-stone-200 px-2 py-0.5 rounded-full text-xs hover:bg-stone-300">{cat.trim()}</a>;
-                    })}
-                  </span>
-                )}
-              </div>
-            </div>
-          </a>
-        ))
+          </div>
+        </div>
+      </a>
+      ))
       ) : (
-        <p class="col-span-full text-center text-stone-600">No hay noticias en esta categoría.</p>
+      <p class="col-span-full text-center text-stone-600">No hay noticias en esta categoría.</p>
       )}
     </div>
   </main>

@@ -7,8 +7,8 @@ const { nombre, imagen, descripcion, link, descarga } = Astro.props;
 <!-- cards de publicaciones -->
 <div class="relative flex flex-col w-full h-[600px] max-w-[394px] items-center mb-2 md:h-[650px] md:inline-flex md:gap-2 md:mr-8 md:items-center md:shrink-0 rounded-md bg-white shadow-md shadow-stone-400">
   <figure class="pt-4">
-    <Image src={imagen} alt="" class="rounded-sm" />
-  </figure
+    <img src={imagen} alt={nombre} class="rounded-sm" />
+  </figure>
   <div class="items-center text-center mt-1 mx-6 mb-2">
     <p class="font-['Mulish'] text-[18px] text-azul">{nombre}</p>
     <button

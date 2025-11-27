@@ -6,8 +6,10 @@ const posts = defineCollection({
     title: z.string(),
     subtitle: z.string().optional(),
     imagepost: z.string().optional(), // Keystatic image field stores path as string
+    date: z.date(),
     category: z.string().optional(),
     author: z.string().optional(),
+    showOnHome: z.boolean().default(false),
   }),
 });
 
@@ -66,7 +68,27 @@ const publicaciones = defineCollection({
     descripcion: z.string().optional(),
     link: z.string().url(),
     descarga: z.string().optional(),
+    showOnHome: z.boolean().default(false),
   }),
 });
 
-export const collections = { posts, people, people2, proyectos, publicaciones };
+const documentos = defineCollection({
+  type: 'data',
+  schema: z.object({
+    nombre: z.string(),
+    link: z.string().url(),
+    descarga: z.string().optional(),
+    order: z.number().optional(),
+  }),
+});
+
+const memorias = defineCollection({
+  type: 'data',
+  schema: z.object({
+    nombre: z.string(),
+    link: z.string().url(),
+    descarga: z.string().optional(),
+    order: z.number().optional(),
+  }),
+});
+export const collections = { posts, people, people2, proyectos, publicaciones, documentos, memorias };

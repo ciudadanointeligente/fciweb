@@ -6,7 +6,9 @@ import LogoFCI from '../assets/images/logos/fci_logo_navbar.png';
 import HeroImage from '../assets/images/web/fci-hero-home.png';
 import FCINosotrosImg from '../assets/images/web/fci-nosotros-img3.png';
 
-const posts = await getCollection('posts');
+const posts = (await getCollection('posts')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
 const noticias = posts.map(post => ({
   title: post.data.title,
   subtitle: post.data.subtitle,
@@ -14,7 +16,6 @@ const noticias = posts.map(post => ({
   category: post.data.category,
   author: post.data.author
 }));
-
 ---
 
 
@@ -27,7 +28,7 @@ const noticias = posts.map(post => ({
     </div>
   </div>
 
-<!-- loop noticias -->
+  <!-- loop noticias -->
   <main class="container mx-auto my-10 max-w-6xl">
     <div class="grid grid-cols-1 md:grid-cols-2 md:gap-12 gap-1 px-4 py-1">
       {posts.map(post => (
@@ -44,13 +45,14 @@ const noticias = posts.map(post => ({
         <div class="py-1 md:p-4">
           <h2 class="text-xl font-bold text-stone-900 mb-2">{post.data.title}</h2>
           <p class="text-stone-600 text-sm">{post.data.subtitle}</p>
-          <div class="mt-2 mb-6 text-sm text-stone-500">
+          <p class="text-stone-400 text-sm mt-2">Leer noticia</p>
+          <div class="mt-2 mb-6 text-sm text-stone-400">
             <div class="mb-4"><span>Por {post.data.author}</span></div>
             {post.data.category && (
             <span>
               {post.data.category.split(', ').map(cat => {
               const categorySlug = cat.trim().toLowerCase().replace(/\s+/g, '-');
-              return <a href={`/categorias/${categorySlug}`} class="bg-stone-200 px-2 py-0.5 rounded-full text-xs hover:bg-stone-300">{cat.trim()}</a>;
+              return <a href={`/categorias/${categorySlug}`} class="bg-stone-100 ml-1 px-2 py-0.5 rounded-full text-xs hover:bg-stone-800 hover:text-white transition delay-75 duration-300 ease-in-out">{cat.trim()}</a>;
               })}
             </span>
             )}
