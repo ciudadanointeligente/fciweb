@@ -6,7 +6,7 @@ export default config({
   },
   cloud: {
     project: 'fciweb/fciweb',
-  }
+  },
   collections: {
     posts: collection({
       label: 'Noticias',
