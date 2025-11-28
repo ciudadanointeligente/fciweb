@@ -1,7 +1,7 @@
 
 export default new Map([
 ["src/content/posts/analisis-de-las-propuestas-presidenciales-2025-en-materia-democratica.mdoc", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fposts%2Fanalisis-de-las-propuestas-presidenciales-2025-en-materia-democratica.mdoc&astroContentModuleFlag=true")],
-["src/content/posts/declaracion-de-ciudadania-inteligente-por-veredicto-en-caso-sqm.mdoc", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fposts%2Fdeclaracion-de-ciudadania-inteligente-por-veredicto-en-caso-sqm.mdoc&astroContentModuleFlag=true")],
+["src/content/posts/noticia1.mdoc", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fposts%2Fnoticia1.mdoc&astroContentModuleFlag=true")],
 ["src/content/posts/encuentro-transparentes-articulacion-para-la-defensa-y-fortalecimiento-del-espacio-civico.mdoc", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fposts%2Fencuentro-transparentes-articulacion-para-la-defensa-y-fortalecimiento-del-espacio-civico.mdoc&astroContentModuleFlag=true")],
-["src/content/posts/noticia1.mdoc", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fposts%2Fnoticia1.mdoc&astroContentModuleFlag=true")]]);
+["src/content/posts/declaracion-de-ciudadania-inteligente-por-veredicto-en-caso-sqm.mdoc", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fposts%2Fdeclaracion-de-ciudadania-inteligente-por-veredicto-en-caso-sqm.mdoc&astroContentModuleFlag=true")]]);
 		
