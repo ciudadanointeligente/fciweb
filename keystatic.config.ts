@@ -20,8 +20,8 @@ export default config({
         author: fields.text({ label: 'Autor/s' }),
         imagepost: fields.image({
           label: 'Imagen Principal',
-          directory: 'src/assets/images/posts',
-          publicPath: '/src/assets/images/posts/',
+          directory: 'public/images/posts',
+          publicPath: '/images/posts/',
           optional: true,
         }),
         date: fields.date({
@@ -32,8 +32,8 @@ export default config({
           label: 'Contenido',
           options: {
             image: {
-              directory: 'src/assets/images/posts',
-              publicPath: '../../assets/images/posts/',
+              directory: 'public/images/posts',
+              publicPath: '../../public/images/posts/',
             },
           },
         }),
@@ -56,8 +56,8 @@ export default config({
         }),
         photo: fields.image({
           label: 'Foto',
-          directory: 'src/assets/images/people',
-          publicPath: '/src/assets/images/people/',
+          directory: 'public/images/people',
+          publicPath: '/images/people/',
         }),
         description: fields.text({ label: 'Descripción' }),
         email: fields.text({ label: 'Email', optional: true }),
@@ -80,8 +80,8 @@ export default config({
         }),
         photo: fields.image({
           label: 'Foto',
-          directory: 'src/assets/images/people2',
-          publicPath: '/src/assets/images/people2/',
+          directory: 'public/images/people2',
+          publicPath: '/images/people2/',
         }),
         description: fields.text({ label: 'Descripción' }),
         email: fields.text({ label: 'Email', optional: true }),
@@ -144,14 +144,14 @@ export default config({
         descripcion: fields.text({ label: 'Descripción', optional: true }),
         imagen: fields.image({
           label: 'imagen',
-          directory: 'src/assets/images/publicaciones',
-          publicPath: '/src/assets/images/publicaciones/',
+          directory: 'public/images/publicaciones',
+          publicPath: '/images/publicaciones/',
         }),
         link: fields.url({ label: 'Link', optional: true }),
         descarga: fields.file({
           label: 'Documento',
-          directory: 'src/assets/pdfs/publicaciones',
-          publicPath: '/src/assets/pdfs/publicaciones/',
+          directory: 'public/pdfs/publicaciones',
+          publicPath: '/pdfs/publicaciones/',
         }),
         showOnHome: fields.checkbox({
           label: 'Mostrar en Home',
@@ -173,8 +173,8 @@ export default config({
         }),
         descarga: fields.file({
           label: 'Documento',
-          directory: 'src/assets/pdfs/documentos',
-          publicPath: '/src/assets/pdfs/documentos/',
+          directory: 'public/pdfs/documentos',
+          publicPath: '/pdfs/documentos/',
         }),
       },
     }),
@@ -192,8 +192,8 @@ export default config({
         }),
         descarga: fields.file({
           label: 'Documento',
-          directory: 'src/assets/pdfs/memorias',
-          publicPath: '/src/assets/pdfs/memorias/',
+          directory: 'public/pdfs/memorias',
+          publicPath: '/pdfs/memorias/',
         }),
       },
     }),
