@@ -1,4 +1,6 @@
 
 export default new Map([
-["src/content/posts/encuentro-transparentes-articulacion-para-la-defensa-y-fortalecimiento-del-espacio-civico.mdoc", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fposts%2Fencuentro-transparentes-articulacion-para-la-defensa-y-fortalecimiento-del-espacio-civico.mdoc&astroContentModuleFlag=true")]]);
+["src/content/posts/encuentro-transparentes-articulacion-para-la-defensa-y-fortalecimiento-del-espacio-civico.mdoc", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fposts%2Fencuentro-transparentes-articulacion-para-la-defensa-y-fortalecimiento-del-espacio-civico.mdoc&astroContentModuleFlag=true")],
+["src/content/posts/lanzamos-web-colectiva-una-red-regional-para-defender-y-revitalizar-la-democracia.mdoc", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fposts%2Flanzamos-web-colectiva-una-red-regional-para-defender-y-revitalizar-la-democracia.mdoc&astroContentModuleFlag=true")],
+["src/content/posts/segunda-vuelta-presidencial-2025-informacion-clave-para-las-proximas-elecciones-en-chile.mdoc", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fposts%2Fsegunda-vuelta-presidencial-2025-informacion-clave-para-las-proximas-elecciones-en-chile.mdoc&astroContentModuleFlag=true")]]);
 		
