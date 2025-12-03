@@ -10,6 +10,7 @@ export default config({
   collections: {
     posts: collection({
       label: 'Noticias',
+      columns: ['title', 'date'],
       slugField: 'title',
       path: 'src/content/posts/*',
       format: { contentField: 'content' },
