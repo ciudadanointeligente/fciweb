@@ -31,7 +31,7 @@ export async function getStaticPaths() {
 
 <Layout title={post.data.title}>
   <article class="container mx-auto px-4 my-10 max-w-4xl bg-white/70">
-    <nav class="text-sm text-stone-500 mb-4" aria-label="Breadcrumb">
+    <nav class="text-sm text-stone-500 mb-2" aria-label="Breadcrumb">
       <ol class="list-none p-0 inline-flex">
         <li class="flex items-center">
           <a href="/noticias" class="text-blue-600 hover:underline">Noticias</a>
@@ -42,8 +42,9 @@ export async function getStaticPaths() {
         </li>
       </ol>
     </nav>
+    <h1 class="text-4xl md:text-4xl font-extrabold text-stone-800 mb-2">{post.data.title}</h1>
     {post.data.imagepost && (
-      <div class="mb-8">
+      <div class="mb-8 mt-8">
         <Image 
           src={post.data.imagepost} 
           alt={post.data.title} 
@@ -54,7 +55,6 @@ export async function getStaticPaths() {
       </div>
     )}
 
-    <h1 class="text-4xl md:text-5xl font-extrabold text-stone-900 mb-4 leading-tight">{post.data.title}</h1>
     {post.data.subtitle && <p class="text-xl md:text-2xl text-stone-600 mb-6 leading-relaxed">{post.data.subtitle}</p>}
 
     <div class="flex items-center text-sm text-stone-500 mb-8">
