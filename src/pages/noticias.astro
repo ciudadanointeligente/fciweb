@@ -64,27 +64,28 @@ const noticias = posts.map(post => ({
     </div>
   </main>
 
-  <!-- franja newsletter -->
-  <div class="md:mt-24 items-center bg-rosa mix-blend-screen shadow-md shadow-stone-400">
-    <div class="py-5 px-5 md:py-20 md:px-32">
-      <div class="text-white text-sm md:text-[28px] font-bold">Súmate a nuestro newsletter de Ciudadanía Inteligente</div>
-      <form class="py-2 font-['Mulish'] text-sm md:text-[18px]">
-        <input 
-          type="email" 
-          placeholder="Ingresa tu correo" 
-          aria-label="Ingresa tu correo electrónico" 
-          class="md:w-[600px] py-1.5 px-1.5 bg-white border border-stone-300 caret-black rounded-md focus:outline-none focus:ring-2 focus:ring-white"
-          required
-        />
-        <button 
-          type="submit" 
-          class="py-1.5 px-1.5 m-2 text-sm bg-rosa text-white border rounded-md hover:bg-white hover:text-rosa transition-colors duration-800"
-        >
-          Suscribirse
-        </button>
-      </form>
+    <!-- franja newsletter -->
+    <div class="md:mt-24 items-center bg-rosa mix-blend-screen shadow-md shadow-stone-400">
+      <div class="py-5 px-5 md:py-20 md:px-32">
+        <div class="text-white text-sm md:text-[28px] font-bold">Súmate a nuestro newsletter de Ciudadanía Inteligente</div>
+        <form action="//ciudadanointeligente.us5.list-manage.com/subscribe/post?u=73951bb4ca8d05cfc6a608807&id=b77280e172" method="post" class="py-2 font-['Mulish'] text-sm md:text-[18px]" novalidate>
+          <input 
+            type="email"
+            name="EMAIL"
+            placeholder="Ingresa tu correo" 
+            aria-label="Ingresa tu correo electrónico" 
+            class="md:w-[600px] py-1.5 px-1.5 bg-white border border-stone-300 caret-black rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+            required
+          />
+          <button 
+            type="submit" 
+            class="py-1.5 px-1.5 m-2 text-sm bg-rosa text-white border rounded-md hover:bg-white hover:text-rosa transition-colors duration-800"
+          >
+            Suscribirse
+          </button>
+        </form>
+      </div>
     </div>
-  </div>
 
   <!-- hero footer -->
   <div class="flex justify-center mb-8 mask-b-from-90%">
