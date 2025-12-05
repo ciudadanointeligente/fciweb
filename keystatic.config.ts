@@ -107,13 +107,13 @@ export default config({
           directory: 'public/images/proyectos',
           publicPath: '/images/proyectos/',
         }),
-        ubicacion: fields.select({
+        ubicacion: fields.multiselect({
           label: 'Ubicación',
           options: [
             { label: 'América Latina', value: 'America Latina' },
             { label: 'Chile', value: 'Chile' },
           ],
-          defaultValue: 'America Latina',
+          defaultValue: ['America Latina'],
         }),
         descripcion: fields.text({
           label: 'Descripción',

@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BocinaImage from '../assets/images/web/fci-megafono.png';
 import BocinaImage2 from '../assets/images/web/fci-megafono-2.png';
-import HeroImage from '../assets/images/web/fci-hero-home.png';
+import HeroImage from '../assets/images/web/fci-home-1.webp';
 import GenteFondoImage from '../assets/images/web/fci-gente-home.png';
 import Boton from '../components/Boton.astro';
 import CardProyecto from '../components/CardProyecto.astro';
@@ -42,7 +42,7 @@ const homePublications = allPublications.filter(pub => pub.data.showOnHome).slic
     </h1>
 
     <!-- hero -->
-    <div class="flex justify-center mb-8 mask-b-from-90%">
+    <div class="flex justify-center mb-4 mask-b-from-70%">
       <Image src={HeroImage} 
         alt="Fundación Ciudadanía Inteligente" 
         class="w-full h-[800px]" />
@@ -66,7 +66,7 @@ const homePublications = allPublications.filter(pub => pub.data.showOnHome).slic
         <div class="w-1/3 -ml-8 flex items-center">
           <Image src={BocinaImage} 
             alt="Megáfono Fundación Ciudadanía Inteligente" 
-            class="w-[317px] h-auto ml-0"/>
+            class="w-[317px] h-auto ml-0 md:hover:animate-pulse"/>
         </div>
         <div class="w-2/3 flex items-center justify-center">
           <Boton href="/nosotros">VER NOSOTROS</Boton>
@@ -74,7 +74,7 @@ const homePublications = allPublications.filter(pub => pub.data.showOnHome).slic
         <div class="w-1/3 -mr-8 flex items-center justify-end">
           <Image src={BocinaImage2} 
             alt="Megáfono Fundación Ciudadanía Inteligente" 
-            class="w-[317px] h-auto mr-0"/>
+            class="w-[317px] h-auto mr-0 md:hover:animate-pulse"/>
         </div>
       </div>
     </div>
