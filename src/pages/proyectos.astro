@@ -7,9 +7,6 @@ import HeroImage from '../assets/images/web/fci-hero-home.png';
 import FCINosotrosImg from '../assets/images/web/fci-nosotros-img3.png';
 
 const allProyectos = (await getCollection('proyectos')).sort((a, b) => a.data.order - b.data.order);
-
-// const uniqueUbicaciones = [...new Set(allProyectos.map(proyecto => proyecto.data.ubicacion))];
-// const uniqueStatus = [...new Set(allProyectos.map(proyecto => proyecto.data.status))];
 ---
 
 
@@ -23,32 +20,6 @@ const allProyectos = (await getCollection('proyectos')).sort((a, b) => a.data.or
   </div>
 
   <main class="mx-auto text-center md:py-8 w-10/12 p-4 md:px-8 md:mt-12">
-
-    <!-- <div class="flex flex-col md:flex-row justify-center gap-4 mb-8"> -->
-    <!--   <div class="w-full md:w-1/4"> -->
-    <!--     <label for="ubicacion-filter" class="block text-sm font-medium text-stone-700">Filtrar por:</label> -->
-    <!--     <select id="ubicacion-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-stone-300 focus:outline-none focus:ring-azul focus:border-azul sm:text-sm rounded-md" client:load> -->
-    <!--       <option value="all">Todas</option> -->
-    <!--       { -->
-    <!--         uniqueUbicaciones.map(ubicacion => ( -->
-    <!--           <option value={ubicacion}>{ubicacion}</option> -->
-    <!--         )) -->
-    <!--       } -->
-    <!--     </select> -->
-    <!--   </div> -->
-    <!---->
-    <!--   <div class="w-full md:w-1/4"> -->
-    <!--     <label for="status-filter" class="block text-sm font-medium text-stone-700">Filtrar por Estado:</label> -->
-    <!--     <select id="status-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-stone-300 focus:outline-none focus:ring-azul focus:border-azul sm:text-sm rounded-md" client:load> -->
-    <!--       <option value="all">Todos</option> -->
-    <!--       { -->
-    <!--         uniqueStatus.map(status => ( -->
-    <!--           <option value={status}>{status}</option> -->
-    <!--         )) -->
-    <!--       } -->
-    <!--     </select> -->
-    <!--   </div> -->
-    <!-- </div> -->
 
     <section aria-labelledby="proyectos-heading">
       {
@@ -101,39 +72,3 @@ const allProyectos = (await getCollection('proyectos')).sort((a, b) => a.data.or
   </div>
 </Layout>
 
-<!-- filtro -->
-<!-- <script is:inline> -->
-<!--   const proyectosGrid = document.getElementById('proyectos-grid'); -->
-<!--   const ubicacionFilter = document.getElementById('ubicacion-filter'); -->
-<!--   const statusFilter = document.getElementById('status-filter'); -->
-<!---->
-<!--   function filterProjects() { -->
-<!--     const selectedUbicacion = ubicacionFilter.value; -->
-<!--     const selectedStatus = statusFilter.value; -->
-<!---->
-<!--     console.log('Selected Ubicación:', selectedUbicacion); -->
-<!--     console.log('Selected Status:', selectedStatus); -->
-<!---->
-<!--     Array.from(proyectosGrid.children).forEach(card => { -->
-<!--       const ubicacion = card.dataset.ubicacion; -->
-<!--       const status = card.dataset.status; -->
-<!---->
-<!--       console.log('Card Ubicación:', ubicacion, 'Card Status:', status); -->
-<!---->
-<!--       const matchesUbicacion = selectedUbicacion === 'all' || ubicacion === selectedUbicacion; -->
-<!--       const matchesStatus = selectedStatus === 'all' || status === selectedStatus; -->
-<!---->
-<!--       if (matchesUbicacion && matchesStatus) { -->
-<!--         card.style.display = 'block'; -->
-<!--       } else { -->
-<!--         card.style.display = 'none'; -->
-<!--       } -->
-<!--     }); -->
-<!--   } -->
-<!---->
-<!--   ubicacionFilter.addEventListener('change', filterProjects); -->
-<!--   statusFilter.addEventListener('change', filterProjects); -->
-<!---->
-<!--   // filtro inicial -->
-<!--   filterProjects(); -->
-<!-- </script> -->
