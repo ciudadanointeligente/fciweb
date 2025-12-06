@@ -7,7 +7,7 @@ import Lealtad from '../assets/images/logos/lealtad.png';
 
 <!-- footer global -->
 <footer>
-  <div class="w-full bg-black mix-blend-screen mt-0">
+  <div class="w-full bg-black mix-blend-screen mt-0 border-t-4 border-stone-200">
     <div class="flex justify-center mb-2">
       <h2 class="text-stone-200 text-sm md:text-2xl font-bold">Ciudadanía_Inteligente</h2>
     </div>
@@ -35,11 +35,13 @@ import Lealtad from '../assets/images/logos/lealtad.png';
       <!-- </div> -->
     </div>
     <div class="flex flex-row justify-center mt-5">
-      <a href="/lealtad"><Image src={Lealtad} alt="Lealtad" class="w-22 h-auto"/></a>
+      <a href="https://ciudadaniai.org/assets/attachments/estandar-de-transparencia-y-buenas-practicas-fci.pdf">
+        <Image src={Lealtad} alt="Lealtad" target="_blank" class="w-22 h-auto"/>
+      </a>
     </div>
 
     <!-- footer menú -->
-        <div class="text-center mt-5 mb-2 align-bottom text-stone-200 text-xs font-[Mulish]">
+    <div class="text-center mt-5 mb-2 align-bottom text-stone-200 text-xs font-[Mulish]">
 
       <a href="/" aria-label="link inicio" data-astro-reload class="px-2 text-sm">Inicio</a>
       <a href="/nosotros" aria-label="link nosotros" class="px-2 text-sm">Nosotros</a>
@@ -48,8 +50,8 @@ import Lealtad from '../assets/images/logos/lealtad.png';
       <a href="/noticias" aria-label="link noticias" class="px-2 text-sm">Noticias</a>
       <a href="/transparencia" aria-label="link informes" class="px-2 text-sm">Transparencia</a>
       <a href="/contacto" aria-label="link contacto" class="px-2 text-sm">Contacto</a>
-    
-</div>
+
+    </div>
     <hr class="h-0.1 border border-stone-600 bg-stone-900" />
     <div class="text-center align-bottom text-stone-200 text-xs p-2">
       &copy; {new Date().getFullYear()} Fundación Ciudadanía Inteligente. Todos los derechos reservados.
