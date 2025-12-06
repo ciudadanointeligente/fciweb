@@ -51,7 +51,7 @@ const proyectos = defineCollection({
     nombre: z.string(),
     imagen: z.string(),// Keystatic image field stores path as string
     order: z.number(),
-    ubicacion: z.enum(['America Latina', 'Chile']),
+    // ubicacion: z.enum(['America Latina', 'Chile']),
     descripcion: z.string(),
     link: z.string().url(),
     link2: z.string().url().optional(),
