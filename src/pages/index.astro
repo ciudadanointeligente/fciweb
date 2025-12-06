@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 import BocinaImage from '../assets/images/web/fci-megafono.png';
 import BocinaImage2 from '../assets/images/web/fci-megafono-2.png';
 import HeroImage from '../assets/images/web/fci-home-1.webp';
+import FooterImage from '../assets/images/web/fci-home-2.webp';
 import GenteFondoImage from '../assets/images/web/fci-gente-home.png';
 import Boton from '../components/Boton.astro';
 import CardProyecto from '../components/CardProyecto.astro';
@@ -164,8 +165,8 @@ const homePublications = allPublications.filter(pub => pub.data.showOnHome).slic
     </div>
 
     <!-- hero footer -->
-    <div class="flex justify-center mb-8 mask-b-from-90%">
-      <Image src={HeroImage} 
+    <div class="flex justify-center mb-4 mask-b-from-70%">
+      <Image src={FooterImage} 
         alt="Fundación Ciudadanía Inteligente" 
         class="w-full h-[800px] image-fade-in" />
     </div>
