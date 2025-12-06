@@ -59,7 +59,6 @@ const allProyectos = (await getCollection('proyectos')).sort((a, b) => a.data.or
         nombre={proyecto.data.nombre}
         descripcion={proyecto.data.descripcion}
         link={proyecto.data.link}
-        <!-- ubicacion={proyecto.data.ubicacion} -->
         status={proyecto.data.status}
       />
       ))
