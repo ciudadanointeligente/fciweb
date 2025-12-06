@@ -107,7 +107,7 @@ export default config({
           directory: 'public/images/proyectos',
           publicPath: '/images/proyectos/',
         }),
-        ubicacion: fields.multiselect({
+        ubicacion: fields.select({
           label: 'Ubicación',
           options: [
             { label: 'América Latina', value: 'America Latina' },
