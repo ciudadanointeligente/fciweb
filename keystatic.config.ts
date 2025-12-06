@@ -113,7 +113,7 @@ export default config({
             { label: 'América Latina', value: 'America Latina' },
             { label: 'Chile', value: 'Chile' },
           ],
-          defaultValue: ['America Latina'],
+          defaultValue: ['Chile'],
         }),
         descripcion: fields.text({
           label: 'Descripción',
