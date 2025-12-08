@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import PublicacionCard from '../components/PublicacionCard.astro';
 import { Image } from 'astro:assets';
-import HeroImage from '../assets/images/web/fci-hero-home.png';
+import HeroImage from '../assets/images/web/fci-publicaciones.webp';
 import FCINosotrosImg from '../assets/images/web/fci-nosotros-img3.png';
 
 const allpublicaciones = await getCollection('publicaciones')
@@ -35,9 +35,6 @@ const allpublicaciones = await getCollection('publicaciones')
       }
     </section>
 
-    <div class="flex justify-center md:justify-start w-full mt-2 md:mt-2">
-      <Image src={FCINosotrosImg} alt="Fundación Ciudadanía Inteligente" class="w-[150px] h-auto -rotate-2 md:w-[300px]" />
-    </div>
   </main>
 
     <!-- franja newsletter -->
@@ -64,7 +61,7 @@ const allpublicaciones = await getCollection('publicaciones')
     </div>
 
   <!-- hero footer -->
-  <div class="flex justify-center mb-8 mask-b-from-90%">
+  <div class="flex md:mt-20 justify-center mb-8 mask-b-from-70%">
     <Image src={HeroImage} 
       alt="Fundación Ciudadanía Inteligente" 
       class="w-full h-[800px]" />
