@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import BocinaImage from '../assets/images/web/fci-megafono.png';
-import HeroImage from '../assets/images/web/fci-hero-home.png';
+import HeroContacto from '../assets/images/web/fci-home-contacto.webp';
 import BocinaImage2 from '../assets/images/web/fci-megafono-2.png';
 import Boton from '../components/Boton.astro';
 ---
@@ -78,10 +78,10 @@ import Boton from '../components/Boton.astro';
     </div>
 
     <!-- hero footer -->
-    <div class="flex justify-center mt-20 mb-8 mask-b-from-90%">
-      <Image src={HeroImage} 
+    <div class="flex justify-center mb-4 mask-b-from-70%">
+      <Image src={HeroContacto} 
         alt="Fundación Ciudadanía Inteligente" 
-        class="w-full h-[800px]" />
+        class="w-full h-[800px] image-fade-in" />
     </div>
 
   </main>
