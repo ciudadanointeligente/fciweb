@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 // import Transparencia1 from '../assets/images/web/fci-escalera.webp';
 // import Transparencia2 from '../assets/images/web/fci-escalera2.webp';
-import HeroImage from '../assets/images/web/fci-footertransp.webp';
+import HeroImage from '../assets/images/web/fci-hero-home.png';
 import Undef from '../assets/images/web/logo-undef.png';
 import Avina from '../assets/images/web/logo-avina.png';
 import OpenSociety from '../assets/images/web/logo-osf.png';
@@ -134,7 +134,7 @@ const allMemorias = (await getCollection('memorias')).sort((a, b) => a.data.orde
     <div class="flex justify-center mb-8 mask-b-from-70%">
       <Image src={HeroImage} 
         alt="Fundación Ciudadanía Inteligente" 
-      class="w-full h-[800px] image-fade-in grayscale-100 saturate-50 hover:grayscale-50 hover:saturate-50 transition ease-in-out duration-1000 delay-150" />
+      class="w-full h-[800px] image-fade-in transition ease-in-out duration-1000 delay-150" />
     </div>
   </main>
 

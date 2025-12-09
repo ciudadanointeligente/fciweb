@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import CardProyecto from '../components/CardProyecto.astro';
 import { Image } from 'astro:assets';
-import HeroImage from '../assets/images/web/fci-proyectos.webp';
+import HeroImage from '../assets/images/web/fci-hero-home.png';
 import FCINosotrosImg from '../assets/images/web/fci-nosotros-img3.png';
 
 const allProyectos = (await getCollection('proyectos')).sort((a, b) => a.data.order - b.data.order);
@@ -65,7 +65,7 @@ const allProyectos = (await getCollection('proyectos')).sort((a, b) => a.data.or
   <div class="flex justify-center md:mt-20 mb-8 mask-b-from-70%">
     <Image src={HeroImage} 
       alt="Fundación Ciudadanía Inteligente" 
-      class="w-full h-[800px] image-fade-in grayscale-100 saturate-50 hover:grayscale-50 hover:saturate-50 transition ease-in-out duration-1000 delay-150" />
+      class="w-full h-[800px] image-fade-in transition ease-in-out duration-1000 delay-150" />
   </div>
 </Layout>
 
