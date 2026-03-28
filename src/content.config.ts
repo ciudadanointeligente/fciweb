@@ -1,11 +1,12 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 
 const posts = defineCollection({
-  // Type-check frontmatter using a schema
+  loader: glob({ pattern: "**/*.mdoc", base: "./src/content/posts" }),
   schema: z.object({
     title: z.string(),
     subtitle: z.string().optional(),
-    imagepost: z.string().optional(), // Keystatic image field stores path as string
+    imagepost: z.string().optional(),
     date: z.date(),
     category: z.string().optional(),
     author: z.string().optional(),
@@ -14,12 +15,12 @@ const posts = defineCollection({
 });
 
 const people = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/people" }),
   schema: z.object({
     name: z.string(),
     position: z.string(),
     order: z.number(),
-    photo: z.string(), // Keystatic image field stores path as string
+    photo: z.string(),
     description: z.string(),
     email: z.string().optional(),
     twitter: z.string().optional(),
@@ -30,12 +31,12 @@ const people = defineCollection({
 });
 
 const people2 = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/people2" }),
   schema: z.object({
     name: z.string(),
     position: z.string(),
     order: z.number(),
-    photo: z.string(), // Keystatic image field stores path as string
+    photo: z.string(),
     description: z.string(),
     email: z.string().optional(),
     twitter: z.string().optional(),
@@ -46,25 +47,24 @@ const people2 = defineCollection({
 });
 
 const proyectos = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/proyectos" }),
   schema: z.object({
     nombre: z.string(),
-    imagen: z.string(),// Keystatic image field stores path as string
+    imagen: z.string(),
     order: z.number(),
-    // ubicacion: z.enum(['America Latina', 'Chile']),
     descripcion: z.string(),
     link: z.string().url(),
     link2: z.string().url().optional(),
-    status: z.enum(['Actual', 'Pasado']),
+    status: z.enum(["Actual", "Pasado"]),
     home: z.boolean().default(false),
   }),
 });
 
 const publicaciones = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/publicaciones" }),
   schema: z.object({
     nombre: z.string(),
-    imagen: z.string().optional(), // Keystatic image field stores path as string
+    imagen: z.string().optional(),
     descripcion: z.string().optional(),
     link: z.string().url(),
     descarga: z.string().optional(),
@@ -73,7 +73,7 @@ const publicaciones = defineCollection({
 });
 
 const documentos = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/documentos" }),
   schema: z.object({
     nombre: z.string(),
     link: z.string().url(),
@@ -83,7 +83,7 @@ const documentos = defineCollection({
 });
 
 const memorias = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: "**/*.yaml", base: "./src/content/memorias" }),
   schema: z.object({
     nombre: z.string(),
     link: z.string().url(),
@@ -91,4 +91,13 @@ const memorias = defineCollection({
     order: z.number().optional(),
   }),
 });
-export const collections = { posts, people, people2, proyectos, publicaciones, documentos, memorias };
+
+export const collections = {
+  posts,
+  people,
+  people2,
+  proyectos,
+  publicaciones,
+  documentos,
+  memorias,
+};

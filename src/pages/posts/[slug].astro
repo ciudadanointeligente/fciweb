@@ -5,10 +5,19 @@ import { Image } from 'astro:assets';
 
 const { slug } = Astro.params;
 if (!slug) throw new Error('Slug not found');
-const post = await getEntry('posts', slug);
 
-if (!post) throw new Error('No post found for this slug');
-const { Content } = await post.render();
+let post;
+try {
+  post = await getEntry('posts', slug);
+} catch {
+  const posts = await getCollection('posts');
+  post = posts.find(p => p.id === slug || p.id === `${slug}.mdoc`);
+}
+
+if (!post) throw new Error(`No post found for slug: ${slug}`);
+import { render } from 'astro:content';
+
+const { Content } = await render(post);
 
 const categoryNames = post.data.category ? post.data.category.split(', ') : [];
 const categoriesHtml = categoryNames.length > 0 ? 
@@ -23,7 +32,7 @@ const categoriesHtml = categoryNames.length > 0 ?
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
   return posts.map(post => ({
-    params: { slug: post.slug }
+    params: { slug: post.id.replace(/\.mdoc$/, '') }
   }));
 }
 ---

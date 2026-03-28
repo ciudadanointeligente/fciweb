@@ -37,7 +37,7 @@ const pageTitle = category.replace(/-/g, ' ').split(' ').map(word => word.charAt
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
       {filteredPosts.length > 0 ? (
         filteredPosts.map(post => (
-      <a href={`/posts/${post.slug}`} class="block bg-white rounded-lg">
+      <a href={`/posts/${post.id.replace(/\.mdoc$/, '')}`} class="block bg-white rounded-lg">
         {post.data.imagepost && (
         <Image
           src={post.data.imagepost}

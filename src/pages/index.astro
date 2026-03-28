@@ -22,7 +22,7 @@ const homePosts = allPosts.filter(post => post.data.showOnHome).sort(
   image: post.data.imagepost || '', // Use imagepost or a default empty string
   title: post.data.title,
   description: post.data.subtitle || '', // Use subtitle or a default empty string
-  link: `/posts/${post.slug}` // Assuming a default link structure for posts
+  link: `/posts/${post.id.replace(/\.mdoc$/, '')}`
 }));
 
 const allPublications = await getCollection('publicaciones');

@@ -1,24 +1,29 @@
 ---
-import '../styles.css';
-import '../styles/global.css';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
-import { ClientRouter } from 'astro:transitions';
+import "../styles.css";
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { ClientRouter } from "astro:transitions";
 
-const {title} = Astro.props;
+const { title } = Astro.props;
 ---
 
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" class="overflow-y-scroll">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description">
+    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="FCI" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Ciudadanía Inteligente - {title}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <ClientRouter />
   </head>
   <body>
@@ -29,6 +34,5 @@ const {title} = Astro.props;
       <slot />
       <Footer />
     </div>
-    
   </body>
 </html>
