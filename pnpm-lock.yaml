@@ -74,6 +74,9 @@ importers:
       tailwindcss-animated:
         specifier: ^2.0.0
         version: 2.0.0(tailwindcss@4.1.17)
+      zod:
+        specifier: ^4.3.6
+        version: 4.3.6
     devDependencies:
       daisyui:
         specifier: ^5.5.5
