@@ -1,5 +1,6 @@
 {
   "name": "@keystatic/templates-astro",
+  "type": "module",
   "version": "0.0.61",
   "license": "MIT",
   "repository": {
