@@ -7,18 +7,10 @@ import netlify from "@astrojs/netlify";
 import alpinejs from "@astrojs/alpinejs";
 import icon from "astro-icon";
 
-const isProduction = process.env.NODE_ENV === "production";
-
 export default defineConfig({
-  site: "https://keys.club/",
-  output: "static",
-  integrations: [
-    react(),
-    markdoc(),
-    ...(isProduction ? [] : [keystatic()]),
-    alpinejs(),
-    icon(),
-  ],
+  site: "https://fciweb.netlify.app/",
+  output: "server",
+  integrations: [react(), markdoc(), keystatic(), alpinejs(), icon()],
 
   vite: {
     plugins: [tailwindcss()],
