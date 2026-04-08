@@ -61,7 +61,7 @@ const people2 = (await getCollection("people2")).sort(
       />
     </div>
     <div
-      class="bg-azul h-[350px] md:h-[300px] mix-blend-screen relative -z-10 mt-2 md:mt-[-200px] shadow-lg shadow-azul/45"
+      class="bg-azul h-auto md:h-[300px] mix-blend-screen relative -z-10 mt-2 md:mt-[-200px] shadow-lg shadow-azul/45 p-4 md:p-0"
       x-data="{ isVisible: false }"
       x-init="
       let observer = new IntersectionObserver((entries) => {
@@ -78,7 +78,7 @@ const people2 = (await getCollection("people2")).sort(
       x-cloak
     >
       <ul
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-wrap content-center-safe items-center text-azul justify-center text-sm md:text-[28px] font-['Mulish']"
+        class="flex flex-wrap content-center items-center justify-center text-azul gap-2 md:gap-0 text-sm md:text-[28px] font-['Mulish']"
         x-init="$el.querySelectorAll('li').forEach((li, index) => { li.style.animationDelay = `${index * 100}ms`; });"
       >
         <li
@@ -128,7 +128,7 @@ const people2 = (await getCollection("people2")).sort(
 
     <!-- visión y misión -->
     <div
-      class="text-left px-10 mt-2 md:flex md:pl-60 md:mt-32 md:justify-center md:text-left"
+      class="text-left px-10 mt-12 md:flex md:pl-60 md:mt-32 md:justify-center md:text-left"
     >
       <div class="md:flex-1/2 text-pretty">
         <div class="flex flex-col items-center md:items-start">
@@ -242,13 +242,13 @@ const people2 = (await getCollection("people2")).sort(
     <!-- franja newsletter -->
     <div class="md:mt-24 items-center bg-rosa mix-blend-screen">
       <div class="py-5 px-5 md:py-20 md:px-32">
-        <div class="text-white text-sm md:text-[28px] font-bold">
+        <div class="text-white text-sm md:text-[28px] font-bold text-center">
           Súmate a nuestro newsletter de Ciudadanía Inteligente
         </div>
         <form
           action="//ciudadanointeligente.us5.list-manage.com/subscribe/post?u=73951bb4ca8d05cfc6a608807&id=b77280e172"
           method="post"
-          class="py-2 font-['Mulish'] text-sm md:text-[18px]"
+          class="py-2 font-['Mulish'] text-sm md:text-[18px] flex flex-col md:flex-row items-center gap-2"
           novalidate
         >
           <input
@@ -256,12 +256,12 @@ const people2 = (await getCollection("people2")).sort(
             name="EMAIL"
             placeholder="Ingresa tu correo"
             aria-label="Ingresa tu correo electrónico"
-            class="md:w-[600px] py-1.5 px-1.5 bg-white border border-stone-300 caret-black rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+            class="w-full md:w-[600px] py-1.5 px-3 bg-white border border-stone-300 caret-black rounded-md focus:outline-none focus:ring-2 focus:ring-white"
             required
           />
           <button
             type="submit"
-            class="py-1.5 px-1.5 m-2 text-sm bg-rosa text-white border rounded-md hover:bg-white hover:text-rosa transition-colors duration-800"
+            class="py-1.5 px-4 text-sm bg-rosa text-white border rounded-md hover:bg-white hover:text-rosa transition-colors duration-800 whitespace-nowrap"
           >
             Suscribirse
           </button>

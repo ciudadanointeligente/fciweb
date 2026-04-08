@@ -1,16 +1,24 @@
-import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
-import markdoc from '@astrojs/markdoc';
-import keystatic from '@keystatic/astro';
-import tailwindcss from '@tailwindcss/vite';
-import netlify from '@astrojs/netlify';
-import alpinejs from '@astrojs/alpinejs';
-import icon from 'astro-icon';
+import { defineConfig } from "astro/config";
+import react from "@astrojs/react";
+import markdoc from "@astrojs/markdoc";
+import keystatic from "@keystatic/astro";
+import tailwindcss from "@tailwindcss/vite";
+import netlify from "@astrojs/netlify";
+import alpinejs from "@astrojs/alpinejs";
+import icon from "astro-icon";
 
-// https://astro.build/config
+const isProduction = process.env.NODE_ENV === "production";
+
 export default defineConfig({
-  output: 'static',
-  integrations: [react(), markdoc(), keystatic(), alpinejs(), icon()],
+  site: "https://keys.club/",
+  output: "static",
+  integrations: [
+    react(),
+    markdoc(),
+    ...(isProduction ? [] : [keystatic()]),
+    alpinejs(),
+    icon(),
+  ],
 
   vite: {
     plugins: [tailwindcss()],
@@ -19,5 +27,7 @@ export default defineConfig({
     },
   },
 
-  adapter: netlify(),
+  adapter: netlify({
+    imageService: "cloudinary",
+  }),
 });

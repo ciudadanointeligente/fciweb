@@ -1,85 +1,110 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import LogoFCI from '../assets/images/logos/fci_logo_navbar.png';
-import HeroImage from '../assets/images/web/fci-hero-home.png';
-import FCINosotrosImg from '../assets/images/web/fci-nosotros-img3.png';
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import LogoFCI from "../assets/images/logos/fci_logo_navbar.png";
+import HeroImage from "../assets/images/web/fci-hero-home.png";
+import FCINosotrosImg from "../assets/images/web/fci-nosotros-img3.png";
 
-const posts = (await getCollection('posts')).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+const posts = (await getCollection("posts")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
-const noticias = posts.map(post => ({
+const noticias = posts.map((post) => ({
   title: post.data.title,
   subtitle: post.data.subtitle,
-  image: post.data.imagepost || '',
+  image: post.data.imagepost || "",
   category: post.data.category,
-  author: post.data.author
+  author: post.data.author,
 }));
 ---
 
-
 <Layout title="Noticias">
-
   <!-- header -->
-  <div class="bg-azul h-[150px] md:h-[300px] mix-blend-screen relative z-0 mt-[-30px] shadow-lg shadow-azul/45">
+  <div
+    class="bg-azul h-[150px] md:h-[300px] mix-blend-screen relative z-0 mt-[-30px] shadow-lg shadow-azul/45"
+  >
     <div class="text-center align-middle py-10 md:py-[120px]">
       <h1 class="text-2xl md:text-4xl text-white font-extrabold">Noticias</h1>
     </div>
   </div>
 
   <!-- loop noticias -->
-  <main class="container mx-auto my-10 max-w-6xl">
-    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-12 gap-1 px-4 py-1">
-      {posts.map(post => (
-      <a href={`/posts/${post.id.replace(/\.mdoc$/, '')}`} class="block bg-white/20 rounded-lg">
-        {post.data.imagepost && (
-        <Image 
-          src={post.data.imagepost} 
-          alt={post.data.title} 
-          width={600} 
-          height={400} 
-          class="rounded-lg object-cover image-fade-in"
-          style="width: 600px; height: 400px;"
-        />
-        )}
-        <div class="py-1 md:p-4">
-          <h2 class="text-xl font-bold text-stone-900 mb-2">{post.data.title}</h2>
-          <p class="text-stone-600 text-sm">{post.data.subtitle}</p>
-          <p class="text-stone-400 text-sm mt-2">Leer noticia</p>
-          <div class="mt-2 mb-6 text-sm text-stone-400">
-            <div class="mb-4"><span>Por {post.data.author}</span></div>
-            {post.data.category && (
-            <span>
-              {post.data.category.split(', ').map(cat => {
-              const categorySlug = cat.trim().toLowerCase().replace(/\s+/g, '-');
-              return <a href={`/categorias/${categorySlug}`} class="bg-stone-100 ml-1 px-2 py-0.5 rounded-full text-xs hover:bg-stone-800 hover:text-white transition delay-75 duration-300 ease-in-out">{cat.trim()}</a>;
-              })}
-            </span>
+  <main class="container mx-auto my-10 max-w-6xl px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-8 gap-6">
+      {
+        posts.map((post) => (
+          <a
+            href={`/posts/${post.id.replace(/\.mdoc$/, "")}`}
+            class="block bg-white rounded-lg overflow-hidden"
+          >
+            {post.data.imagepost && (
+              <Image
+                src={post.data.imagepost}
+                alt={post.data.title}
+                width={600}
+                height={400}
+                class="w-full h-48 md:h-auto object-cover image-fade-in"
+              />
             )}
-          </div>
-        </div>
-      </a>
-      ))}
+            <div class="p-2">
+              <h2 class="text-xl font-bold text-stone-900 mb-2">
+                {post.data.title}
+              </h2>
+              <p class="text-stone-600 text-sm">{post.data.subtitle}</p>
+              <p class="text-stone-400 text-sm mt-2">Leer noticia</p>
+              <div class="mt-2 mb-4 text-sm text-stone-400">
+                <div class="mb-2">
+                  <span>Por {post.data.author}</span>
+                </div>
+                {post.data.category && (
+                  <span>
+                    {post.data.category.split(", ").map((cat) => {
+                      const categorySlug = cat
+                        .trim()
+                        .toLowerCase()
+                        .replace(/\s+/g, "-");
+                      return (
+                        <a
+                          href={`/categorias/${categorySlug}`}
+                          class="bg-stone-100 ml-1 px-2 py-0.5 rounded-full text-xs hover:bg-stone-800 hover:text-white transition delay-75 duration-300 ease-in-out"
+                        >
+                          {cat.trim()}
+                        </a>
+                      );
+                    })}
+                  </span>
+                )}
+              </div>
+            </div>
+          </a>
+        ))
+      }
     </div>
   </main>
 
   <!-- franja newsletter -->
   <div class="md:mt-24 items-center bg-rosa mix-blend-screen">
     <div class="py-5 px-5 md:py-20 md:px-32">
-      <div class="text-white text-sm md:text-[28px] font-bold">Súmate a nuestro newsletter de Ciudadanía Inteligente</div>
-      <form action="//ciudadanointeligente.us5.list-manage.com/subscribe/post?u=73951bb4ca8d05cfc6a608807&id=b77280e172" method="post" class="py-2 font-['Mulish'] text-sm md:text-[18px]" novalidate>
-        <input 
+      <div class="text-white text-sm md:text-[28px] font-bold text-center">
+        Súmate a nuestro newsletter de Ciudadanía Inteligente
+      </div>
+      <form
+        action="//ciudadanointeligente.us5.list-manage.com/subscribe/post?u=73951bb4ca8d05cfc6a608807&id=b77280e172"
+        method="post"
+        class="py-2 font-['Mulish'] text-sm md:text-[18px] flex flex-col md:flex-row items-center gap-2"
+        novalidate
+      >
+        <input
           type="email"
           name="EMAIL"
-          placeholder="Ingresa tu correo" 
-          aria-label="Ingresa tu correo electrónico" 
-          class="md:w-[600px] py-1.5 px-1.5 bg-white border border-stone-300 caret-black rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+          placeholder="Ingresa tu correo"
+          aria-label="Ingresa tu correo electrónico"
+          class="w-full md:w-[600px] py-1.5 px-3 bg-white border border-stone-300 caret-black rounded-md focus:outline-none focus:ring-2 focus:ring-white"
           required
         />
-        <button 
-          type="submit" 
-          class="py-1.5 px-1.5 m-2 text-sm bg-rosa text-white border rounded-md hover:bg-white hover:text-rosa transition-colors duration-800"
+        <button
+          type="submit"
+          class="py-1.5 px-4 text-sm bg-rosa text-white border rounded-md hover:bg-white hover:text-rosa transition-colors duration-800 whitespace-nowrap"
         >
           Suscribirse
         </button>
@@ -93,5 +118,4 @@ const noticias = posts.map(post => ({
   <!--     alt="Fundación Ciudadanía Inteligente"  -->
   <!--     class="w-full h-[800px]" /> -->
   <!-- </div> -->
-
 </Layout>
