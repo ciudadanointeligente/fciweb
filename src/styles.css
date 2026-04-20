@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  background-image: url('./assets/images/web/bg-fci.png');
+  background-image: url('/images/web/bg-fci.png');
   background-size: cover;
   background-repeat: no-repeat;
 }

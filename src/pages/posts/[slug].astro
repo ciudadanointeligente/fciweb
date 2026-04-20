@@ -1,6 +1,6 @@
 ---
 export const prerender = true;
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
@@ -16,7 +16,6 @@ try {
 }
 
 if (!post) throw new Error(`No post found for slug: ${slug}`);
-import { render } from 'astro:content';
 
 const { Content } = await render(post);
 
@@ -69,7 +68,7 @@ export async function getStaticPaths() {
 
     <div class="flex items-center text-sm text-stone-500 mb-8">
       {post.data.author && <span class="mr-4">Por {post.data.author}</span>}
-      <Fragment set:html={categoriesHtml} />
+      <span set:html={categoriesHtml} />
     </div>
 
     <div class="font-['Mulish'] prose prose-lg max-w-none text-stone-800 leading-relaxed space-y-12">

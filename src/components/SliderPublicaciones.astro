@@ -62,7 +62,7 @@ const { publications } = Astro.props;
   </div>
 </div>
 
-<script>
+<script is:inline>
 document.addEventListener('alpine:init', () => {
   if (window.Alpine) {
     window.Alpine.data('sliderData', () => ({
@@ -73,11 +73,8 @@ document.addEventListener('alpine:init', () => {
         if (dataElement && dataElement.dataset.publications) {
           this.publications = JSON.parse(dataElement.dataset.publications);
         }
-        console.log('Alpine data initialized. Publications:', this.publications);
       }
     }));
-  } else {
-    console.error('Alpine.js not found on window.Alpine');
   }
 });
 </script>

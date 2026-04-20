@@ -5,6 +5,7 @@ import FCINosotrosImg from "../assets/images/web/fci-nosotros-mapa.webp";
 import Boton from "../components/Boton.astro";
 import PersonCard from "../components/PersonCard.astro";
 import { getCollection } from "astro:content";
+import NewsletterForm from "../components/NewsletterForm.astro";
 
 const people = (await getCollection("people")).sort(
   (a, b) => a.data.order - b.data.order,
@@ -240,33 +241,6 @@ const people2 = (await getCollection("people2")).sort(
     </section>
 
     <!-- franja newsletter -->
-    <div class="md:mt-24 items-center bg-rosa mix-blend-screen">
-      <div class="py-5 px-5 md:py-20 md:px-32">
-        <div class="text-white text-sm md:text-[28px] font-bold text-center">
-          Súmate a nuestro newsletter de Ciudadanía Inteligente
-        </div>
-        <form
-          action="//ciudadanointeligente.us5.list-manage.com/subscribe/post?u=73951bb4ca8d05cfc6a608807&id=b77280e172"
-          method="post"
-          class="py-2 font-['Mulish'] text-sm md:text-[18px] flex flex-col md:flex-row items-center gap-2"
-          novalidate
-        >
-          <input
-            type="email"
-            name="EMAIL"
-            placeholder="Ingresa tu correo"
-            aria-label="Ingresa tu correo electrónico"
-            class="w-full md:w-[600px] py-1.5 px-3 bg-white border border-stone-300 caret-black rounded-md focus:outline-none focus:ring-2 focus:ring-white"
-            required
-          />
-          <button
-            type="submit"
-            class="py-1.5 px-4 text-sm bg-rosa text-white border rounded-md hover:bg-white hover:text-rosa transition-colors duration-800 whitespace-nowrap"
-          >
-            Suscribirse
-          </button>
-        </form>
-      </div>
-    </div>
+    <NewsletterForm />
   </main>
 </Layout>
